@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.gizmo.music.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "LevelRendererMixin",
+    "MusicMixin",
+    "ToastMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "musicmanager.refmap.json"
+}

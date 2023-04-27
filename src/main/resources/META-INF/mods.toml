@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[45,)"
+license= "MIT"
+
+[[mods]]
+modId="musicmanager"
+version="${file.jarVersion}"
+displayName="Music Manager"
+logoFile="logo.png"
+credits=""
+authors="GizmoTheMoonPig"
+description='''
+A small clientside mod that displays a toast when a music track starts playing.
+You can set how often songs play, set whether toasts play sounds when appearing, as well as display the message that shows up when a music disc starts playing as a toast instead.
+Press M to open the music manager screen.
+'''
+displayTest="IGNORE_ALL_VERSION"
+
+[[dependencies.musicmanager]]
+    modId="forge"
+    mandatory=true
+    versionRange="[45,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.musicmanager]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.4]"
+    ordering="NONE"
+    side="BOTH"
