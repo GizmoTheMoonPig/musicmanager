@@ -12,7 +12,7 @@ public class MusicConfig {
 	public MusicConfig(ForgeConfigSpec.Builder builder) {
 		this.displayRecordToast = builder.define("displayRecordToast", true);
 		this.silentMusicToasts = builder.define("silentMusicToasts", true);
-		this.minSongDelay = builder.defineInRange("minSongDelay", 0, -1, Integer.MAX_VALUE);
-		this.maxSongDelay = builder.defineInRange("maxSongDelay", 0, -1, Integer.MAX_VALUE);
+		this.minSongDelay = builder.defineInRange("minSongDelay", 10, -1, Integer.MAX_VALUE);
+		this.maxSongDelay = builder.defineInRange("maxSongDelay", 30, -1, Integer.MAX_VALUE);
 	}
 }

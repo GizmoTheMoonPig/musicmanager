@@ -19,9 +19,9 @@ public class LangGenerator extends LanguageProvider {
 		add("gui.musicmanager.play_toast_sound", "Play Toast Sounds");
 		add("gui.musicmanager.play_toast_sound.desc", "Determines if Toasts from this mod will play the 'wooosh' sound effect when they appear and disappear.");
 		add("gui.musicmanager.min_song_delay", "Minimum Song Delay");
-		add("gui.musicmanager.min_song_delay.desc", "Sets the minimum amount of time (in seconds) it will take for a new music track to play after the previous one finishes. \nSetting this to -1 will use the default values that vanilla/mods set for their background music.");
+		add("gui.musicmanager.min_song_delay.desc", "Sets the minimum amount of time (in seconds) it will take for a new music track to play after the previous one finishes.\nPlease note that setting it to 0 may cause issues with the toasts showing up properly!\nSetting this to -1 will use the default values that vanilla/mods set for their background music.");
 		add("gui.musicmanager.max_song_delay", "Maximum Song Delay");
-		add("gui.musicmanager.max_song_delay.desc", "Sets the maximum amount of time (in seconds) it will take for a new music track to play after the previous one finishes. \nSetting this to -1 will use the default values that vanilla/mods set for their background music.");
+		add("gui.musicmanager.max_song_delay.desc", "Sets the maximum amount of time (in seconds) it will take for a new music track to play after the previous one finishes.\nPlease note that setting it to 0 may cause issues with the toasts showing up properly!\nSetting this to -1 will use the default values that vanilla/mods set for their background music.");
 		add("gui.musicmanager.save", "Save");
 		add("gui.musicmanager.exit", "Exit");
 		

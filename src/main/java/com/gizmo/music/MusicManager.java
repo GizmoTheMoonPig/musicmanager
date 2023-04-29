@@ -19,8 +19,8 @@ public class MusicManager {
 	public static MusicConfig CLIENT;
 	public static boolean displayRecordToast = true;
 	public static boolean silentMusicToasts = true;
-	public static int minSongDelay = 0;
-	public static int maxSongDelay = 0;
+	public static int minSongDelay = 10;
+	public static int maxSongDelay = 30;
 
 	public MusicManager() {
 		{
