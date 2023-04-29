@@ -18,7 +18,7 @@ public class ToastMixin<T extends Toast> {
 	@Shadow
 	private T toast;
 
-	@Redirect(method = "render", require = 2, at = @At(value = "INVOKE",target = "Lnet/minecraft/client/gui/components/toasts/Toast$Visibility;playSound(Lnet/minecraft/client/sounds/SoundManager;)V"))
+	@Redirect(method = "render", require = 2, at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/toasts/Toast$Visibility;playSound(Lnet/minecraft/client/sounds/SoundManager;)V"))
 	public void musicManager$silenceWooshSound(Toast.Visibility visibility, SoundManager soundManager) {
 		if (!(this.toast instanceof MusicToast) || !MusicManager.silentMusicToasts) {
 			soundManager.play(SimpleSoundInstance.forUI(visibility.soundEvent, 1.0f, 1.0f));

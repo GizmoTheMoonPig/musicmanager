@@ -16,10 +16,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 //Heavily modified SystemToast
-public record MusicToast(Component description, ItemStack stack) implements Toast {
+public record MusicToast(List<FormattedCharSequence> description, ItemStack stack) implements Toast {
 
-	private static final int TEXT_LEFT_MARGIN = 30;
-	private static final int TEXT_RIGHT_MARGIN = 7;
+	public static final int TEXT_LEFT_MARGIN = 30;
+	public static final int TEXT_RIGHT_MARGIN = 7;
 
 	@Override
 	public Visibility render(@NotNull PoseStack stack, @NotNull ToastComponent manager, long startTime) {
@@ -28,13 +28,9 @@ public record MusicToast(Component description, ItemStack stack) implements Toas
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		
 		int height = this.height();
-		Font font = Minecraft.getInstance().gui.getFont();
-		List<FormattedCharSequence> textLines = font.split(this.description(), this.width() - TEXT_LEFT_MARGIN - TEXT_RIGHT_MARGIN);
-
-		if (this.width() == 160 && textLines.size() <= 1) {
+		if (this.width() == 160 && this.description().size() <= 1) {
 			GuiComponent.blit(stack, 0, 0, 0, 0, this.width(), height);
 		} else {
-			height = this.height() + Math.max(0, textLines.size() - 1) * 12;
 			int m = Math.min(4, height - 28);
 			this.renderBackgroundRow(stack, this.width(), 0, 0, 28);
 
@@ -46,8 +42,8 @@ public record MusicToast(Component description, ItemStack stack) implements Toas
 		}
 		manager.getMinecraft().font.draw(stack, Component.translatable("sounds.musicmanager.now_playing"), TEXT_LEFT_MARGIN, 7.0F, 5046016);
 
-		for (int i = 0; i < textLines.size(); ++i) {
-			manager.getMinecraft().font.draw(stack, textLines.get(i), TEXT_LEFT_MARGIN, (float) (18 + i * 12), -1);
+		for (int i = 0; i < this.description().size(); ++i) {
+			manager.getMinecraft().font.draw(stack, this.description().get(i), TEXT_LEFT_MARGIN, (float) (18 + i * 12), -1);
 		}
 
 		stack.pushPose();
@@ -55,6 +51,16 @@ public record MusicToast(Component description, ItemStack stack) implements Toas
 		stack.popPose();
 
 		return startTime >= 5000L ? Toast.Visibility.HIDE : Toast.Visibility.SHOW;
+	}
+
+	@Override
+	public int height() {
+		return 20 + Math.max(1, this.description().size()) * 12;
+	}
+
+	@Override
+	public int slotCount() {
+		return Toast.super.slotCount();
 	}
 
 	private void renderBackgroundRow(PoseStack stack, int i, int vOffset, int y, int vHeight) {
