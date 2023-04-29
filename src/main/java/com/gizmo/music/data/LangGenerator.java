@@ -118,20 +118,20 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.blue_skies.music.turquoise", "Lachney - Turquoise");
 		add("sounds.musicmanager.blue_skies.music.whistleshell", "Lachney - Whistleshell");
 
-		add("sounds.musicmanager.blue_skies.music.dungeons.blinding_dungeon_ambience", "Jon Lachney - Blinding Tower");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.blinding_boss", "Jon Lachney - Blinding Jam");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.blinding_fanfare", "Jon Lachney - Boss Fanfare");
+		add("sounds.musicmanager.blue_skies.music.dungeon.blinding_dungeon_ambience", "Lachney - Blinding Tower");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.blinding_boss", "Lachney - Blinding Jam");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.blinding_fanfare", "Lachney - Boss Fanfare");
 
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.generic_boss", "Jon Lachney - Generic Boss");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.generic_fanfare", "Jon Lachney - Boss Fanfare");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.generic_boss", "Lachney - Generic Boss");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.generic_fanfare", "Lachney - Boss Fanfare");
 
-		add("sounds.musicmanager.blue_skies.music.dungeons.nature_dungeon_ambience", "Jon Lachney - Starlit Passageways");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.nature_boss", "Jon Lachney - Nature Jive");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.nature_fanfare", "Jon Lachney - Boss Fanfare");
+		add("sounds.musicmanager.blue_skies.music.dungeon.nature_dungeon_ambience", "Lachney - Starlit Passageways");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.nature_boss", "Lachney - Nature Jive");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.nature_fanfare", "Lachney - Boss Fanfare");
 
-		add("sounds.musicmanager.blue_skies.music.dungeons.poison_dungeon_ambience", "Jon Lachney - Venomous Tunnels");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.poison_boss", "Jon Lachney - Poison Dance");
-		add("sounds.musicmanager.blue_skies.music.dungeons.boss.poison_fanfare", "Jon Lachney - Boss Fanfare");
+		add("sounds.musicmanager.blue_skies.music.dungeon.poison_dungeon_ambience", "Lachney - Venomous Tunnels");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.poison_boss", "Lachney - Poison Dance");
+		add("sounds.musicmanager.blue_skies.music.dungeon.boss.poison_fanfare", "Lachney - Boss Fanfare");
 
 		add("sounds.musicmanager.the_bumblezone.flight_of_the_bumblebee_rimsky_korsakov", "Rimsky Korsakov - Flight of the Bumblebee");
 		add("sounds.musicmanager.the_bumblezone.honey_bee_rat_faced_boy", "Rat Faced Boy - Honey Bee");
