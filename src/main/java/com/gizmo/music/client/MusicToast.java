@@ -14,21 +14,33 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
 
 //Heavily modified SystemToast
-public record MusicToast(List<FormattedCharSequence> description, ItemStack stack) implements Toast {
+public final class MusicToast implements Toast {
 
 	public static final int TEXT_LEFT_MARGIN = 30;
 	public static final int TEXT_RIGHT_MARGIN = 7;
+	private final List<FormattedCharSequence> description;
+	private final ItemStack icon;
+
+	public MusicToast(Component name, ItemStack icon) {
+		this(Minecraft.getInstance().font, name, icon);
+	}
+
+	public MusicToast(Font font, Component name, ItemStack icon) {
+		this.description = font.split(name, 160 - MusicToast.TEXT_LEFT_MARGIN - MusicToast.TEXT_RIGHT_MARGIN);
+		this.icon = icon;
+	}
 
 	@Override
 	public Visibility render(@NotNull PoseStack stack, @NotNull ToastComponent manager, long startTime) {
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
 		RenderSystem.setShaderTexture(0, TEXTURE);
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-		
+
 		int height = this.height();
-		if (this.width() == 160 && this.description().size() <= 1) {
+		if (this.width() == 160 && this.getDescription().size() <= 1) {
 			GuiComponent.blit(stack, 0, 0, 0, 0, this.width(), height);
 		} else {
 			int m = Math.min(4, height - 28);
@@ -42,20 +54,20 @@ public record MusicToast(List<FormattedCharSequence> description, ItemStack stac
 		}
 		manager.getMinecraft().font.draw(stack, Component.translatable("sounds.musicmanager.now_playing"), TEXT_LEFT_MARGIN, 7.0F, 5046016);
 
-		for (int i = 0; i < this.description().size(); ++i) {
-			manager.getMinecraft().font.draw(stack, this.description().get(i), TEXT_LEFT_MARGIN, (float) (18 + i * 12), -1);
+		for (int i = 0; i < this.getDescription().size(); ++i) {
+			manager.getMinecraft().font.draw(stack, this.getDescription().get(i), TEXT_LEFT_MARGIN, (float) (18 + i * 12), -1);
 		}
 
 		stack.pushPose();
-		manager.getMinecraft().getItemRenderer().renderAndDecorateFakeItem(stack, this.stack(), 9, (height / 2) - (16 / 2));
+		manager.getMinecraft().getItemRenderer().renderAndDecorateFakeItem(stack, this.getIcon(), 9, (height / 2) - (16 / 2));
 		stack.popPose();
 
-		return startTime >= 5000L ? Toast.Visibility.HIDE : Toast.Visibility.SHOW;
+		return startTime >= 5000L ? Visibility.HIDE : Visibility.SHOW;
 	}
 
 	@Override
 	public int height() {
-		return 20 + Math.max(1, this.description().size()) * 12;
+		return 20 + Math.max(1, this.getDescription().size()) * 12;
 	}
 
 	@Override
@@ -74,4 +86,34 @@ public record MusicToast(List<FormattedCharSequence> description, ItemStack stac
 
 		GuiComponent.blit(stack, i - n, y, 160 - n, vOffset, n, vHeight);
 	}
+
+	public List<FormattedCharSequence> getDescription() {
+		return description;
+	}
+
+	public ItemStack getIcon() {
+		return icon;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) return true;
+		if (obj == null || obj.getClass() != this.getClass()) return false;
+		var that = (MusicToast) obj;
+		return Objects.equals(this.description, that.description) &&
+				Objects.equals(this.icon, that.icon);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(description, icon);
+	}
+
+	@Override
+	public String toString() {
+		return "MusicToast[" +
+				"description=" + description + ", " +
+				"stack=" + icon + ']';
+	}
+
 }
