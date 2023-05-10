@@ -1,5 +1,6 @@
 package com.gizmo.music;
 
+import com.gizmo.music.client.MusicResources;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.network.chat.Component;
@@ -46,7 +47,6 @@ public class ToastUtil {
 	}
 
 	public static ItemStack getItemByDimension(Level level) {
-		String dimName = level.dimension().location().toString();
 		ItemStack defaultItem = new ItemStack(Items.MUSIC_DISC_CAT);
 		//if tags are populated, grab a random music disc to spice things up!
 		if (ForgeRegistries.ITEMS.tags() != null && !Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).getTag(ItemTags.MUSIC_DISCS).isEmpty()) {
@@ -56,19 +56,7 @@ public class ToastUtil {
 			}
 		}
 
-		return switch (dimName) {
-			case "minecraft:overworld" -> new ItemStack(Items.GRASS_BLOCK);
-			case "minecraft:the_nether" -> new ItemStack(Items.NETHERRACK);
-			case "minecraft:the_end" -> new ItemStack(Items.END_STONE);
-			case "aether:the_aether" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("aether", "aether_portal_frame")));
-			case "rats:ratlantis" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("rats", "cheese")));
-			case "twilightforest:twilight_forest" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("twilightforest", "twilight_portal_miniature_structure")));
-			case "undergarden:undergarden" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("undergarden", "deepturf_block")));
-			case "the_bumblezone:the_bumblezone" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("the_bumblezone", "essence_of_the_bees")));
-			case "blue_skies:everbright" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("blue_skies", "everbright_portal")));
-			case "blue_skies:everdawn" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("blue_skies", "everdawn_portal")));
-			case "witherstormmod:bowels" -> new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation("witherstormmod", "command_block_book")));
-			default -> defaultItem;
-		};
+		var item = MusicResources.getDimensionIcons().get(level.dimension().location());
+		return item != null ? new ItemStack(ForgeRegistries.ITEMS.getValue(item)) : defaultItem;
 	}
 }
