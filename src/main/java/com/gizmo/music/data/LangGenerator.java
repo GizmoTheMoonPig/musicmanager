@@ -106,6 +106,12 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.undergarden.sounds.music.smog", "ScreemBob - Smog");
 		add("sounds.musicmanager.undergarden.sounds.music.wrought", "ScreemBob - Wrought");
 
+		add("sounds.musicmanager.biomesoplenty.music.game.nether.blot", "LudoCrypt - Blot");
+		add("sounds.musicmanager.biomesoplenty.music.game.nether.cortisol", "LudoCrypt - Cortisol");
+		add("sounds.musicmanager.biomesoplenty.music.game.nether.mesh", "LudoCrypt - Mesh");
+		add("sounds.musicmanager.biomesoplenty.music.game.nether.redhead", "LudoCrypt - Redhead");
+		add("sounds.musicmanager.biomesoplenty.music.game.nether.timber", "LudoCrypt - Timber");
+
 		add("sounds.musicmanager.blue_skies.music.baneful", "Lachney - Baneful");
 		add("sounds.musicmanager.blue_skies.music.brightlands", "Lachney - Brightlands");
 		add("sounds.musicmanager.blue_skies.music.brisegel", "Lachney - Brisegel");
