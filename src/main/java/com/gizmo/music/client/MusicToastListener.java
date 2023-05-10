@@ -13,6 +13,7 @@ import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.RecordItem;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
@@ -20,23 +21,26 @@ public class MusicToastListener implements SoundEventListener {
 
 	@Override
 	public void onPlaySound(SoundInstance sound, WeighedSoundEvents events) {
-		Font font = Minecraft.getInstance().font;
+		Minecraft mc = Minecraft.getInstance();
 		if (sound.getSource() == SoundSource.MUSIC) {
 			Component name = ToastUtil.getSoundName(sound);
 			if (name == null) return;
-			List<FormattedCharSequence> textLines = font.split(name, 160 - MusicToast.TEXT_LEFT_MARGIN - MusicToast.TEXT_RIGHT_MARGIN);
-			if (Minecraft.getInstance().level != null) {
-				Minecraft.getInstance().getToasts().addToast(new MusicToast(textLines, ToastUtil.getItemByDimension(Minecraft.getInstance().level)));
-			} else {
-				//im gonna assume if the level is null, then its the menu
-				Minecraft.getInstance().getToasts().addToast(new MusicToast(textLines, new ItemStack(Items.EMERALD)));
-			}
+
+			var item = mc.level != null ? ToastUtil.getItemByDimension(mc.level) : new ItemStack(Items.EMERALD);
+			this.addMusicToast(name, item);
 		} else if (sound.getSource() == SoundSource.RECORDS && MusicManager.displayRecordToast) {
 			RecordItem disc = ToastUtil.getDiscFromSound(sound);
 			if (disc == null) return;
-			List<FormattedCharSequence> textLines = font.split(disc.getDisplayName(), 160 - MusicToast.TEXT_LEFT_MARGIN - MusicToast.TEXT_RIGHT_MARGIN);
 
-			Minecraft.getInstance().getToasts().addToast(new MusicToast(textLines, new ItemStack(disc)));
+			this.addMusicToast(disc.getDisplayName(), new ItemStack(disc));
+		}
+	}
+
+	private void addMusicToast(Component text, ItemStack icon) {
+		var event = new MusicToastEvent(text, icon);
+		if (!MinecraftForge.EVENT_BUS.post(event)) {
+			var toast = new MusicToast(event.getText(), event.getIcon());
+			Minecraft.getInstance().getToasts().addToast(toast);
 		}
 	}
 }
