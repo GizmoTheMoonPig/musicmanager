@@ -35,7 +35,7 @@ public class MusicResources {
         converter.listMatchingResources(resourceManager).forEach((k, v) -> {
             var split = k.getPath().split("/");
             if (split.length != 4) {
-                MusicManager.LOGGER.error("The path for a music manager dimension resource is incorrect! Expected 'musicmanager/dimensions/namespace/path.json', found '{}'", k.getPath());
+                MusicManager.LOGGER.error("The path for a music manager dimension resource is incorrect! Expected 'musicmanager/dimensions/<dimension namespace>/<dimension path>.json', found '{}'", k.getPath());
                 return;
             }
 
@@ -45,7 +45,7 @@ public class MusicResources {
             try (var reader = v.openAsReader()) {
                 var json = GsonHelper.parse(reader);
                 var item = json.get("item").getAsString();
-                MusicManager.LOGGER.debug("Adding '{}' as the icon for '{}'", item, dimension);
+                //MusicManager.LOGGER.debug("Adding '{}' as the icon for '{}'", item, dimension);
                 DIMENSION_ICONS.put(dimension, new ResourceLocation(item));
             } catch (IOException e) {
                 MusicManager.LOGGER.error("Failed to read a music manager dimension resource! Are you missing a property? File: '{}'", k.getPath());
