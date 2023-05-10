@@ -5,7 +5,6 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -22,6 +21,7 @@ public class ModClientEvents {
 	@SubscribeEvent
 	public static void registerNowPlayingListener(RegisterClientReloadListenersEvent event) {
 		Minecraft.getInstance().getSoundManager().addListener(new MusicToastListener());
+		event.registerReloadListener(MusicResources.LISTENER);
 	}
 
 	@SubscribeEvent
