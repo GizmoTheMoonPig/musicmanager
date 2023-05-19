@@ -18,7 +18,7 @@ apply plugin:  'maven-publish'
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = "${project.artifactor_minecraft_version}-${project.artifactor_mod_version}"
+version = "${project.artifactor_minecraft_version}-${project.artifactor_mod_version}." + (hasProperty("CIVersion") ? CIVersion : '0')
 group = 'com.gizmo.music'
 archivesBaseName = project.modid
 
