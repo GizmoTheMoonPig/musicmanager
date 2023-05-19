@@ -96,15 +96,15 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.twilightforest.music.thread", "MrCompost - Thread");
 		add("sounds.musicmanager.twilightforest.music.wayfarer", "MrCompost - Wayfarer");
 
-		add("sounds.musicmanager.undergarden.sounds.music.acasta_gneiss", "ScreemBob - Acasta Gneiss");
-		add("sounds.musicmanager.undergarden.sounds.music.all_that_wiggles_is_wood", "ScreemBob - All that Wiggles is Wood");
-		add("sounds.musicmanager.undergarden.sounds.music.brotherhood", "ScreemBob - Brotherhood");
-		add("sounds.musicmanager.undergarden.sounds.music.caps", "ScreemBob - Caps");
-		add("sounds.musicmanager.undergarden.sounds.music.grongletune", "ScreemBob - Grongletune");
-		add("sounds.musicmanager.undergarden.sounds.music.monument", "ScreemBob - Monument");
-		add("sounds.musicmanager.undergarden.sounds.music.pit_of_shivers", "ScreemBob - Pit of Shivers");
-		add("sounds.musicmanager.undergarden.sounds.music.smog", "ScreemBob - Smog");
-		add("sounds.musicmanager.undergarden.sounds.music.wrought", "ScreemBob - Wrought");
+		add("sounds.musicmanager.undergarden.music.acasta_gneiss", "ScreemBob - Acasta Gneiss");
+		add("sounds.musicmanager.undergarden.music.all_that_wiggles_is_wood", "ScreemBob - All that Wiggles is Wood");
+		add("sounds.musicmanager.undergarden.music.brotherhood", "ScreemBob - Brotherhood");
+		add("sounds.musicmanager.undergarden.music.caps", "ScreemBob - Caps");
+		add("sounds.musicmanager.undergarden.music.grongletune", "ScreemBob - Grongletune");
+		add("sounds.musicmanager.undergarden.music.monument", "ScreemBob - Monument");
+		add("sounds.musicmanager.undergarden.music.pit_of_shivers", "ScreemBob - Pit of Shivers");
+		add("sounds.musicmanager.undergarden.music.smog", "ScreemBob - Smog");
+		add("sounds.musicmanager.undergarden.music.wrought", "ScreemBob - Wrought");
 
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.blot", "LudoCrypt - Blot");
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.cortisol", "LudoCrypt - Cortisol");
