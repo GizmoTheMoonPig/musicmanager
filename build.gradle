@@ -113,13 +113,12 @@ dependencies {
     minecraft "net.minecraftforge:forge:${project.artifactor_minecraft_version}-${project.artifactor_forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    runtimeOnly fg.deobf("teamtwilight:twilightforest:4.2.1649:universal")
-    runtimeOnly fg.deobf("curse.maven:blue-skies-312918:4460423")
-    runtimeOnly fg.deobf("curse.maven:gel-api-378802:4489758")
-    runtimeOnly fg.deobf("curse.maven:bumblezone-362479:4507366")
+   // runtimeOnly fg.deobf("teamtwilight:twilightforest:4.2.1649:universal")
+    //runtimeOnly fg.deobf("curse.maven:blue-skies-312918:4460423")
+    //runtimeOnly fg.deobf("curse.maven:gel-api-378802:4489758")
+    //runtimeOnly fg.deobf("curse.maven:bumblezone-362479:4507366")
     //runtimeOnly fg.deobf("curse.maven:undergarden-379849:4057184")
-    runtimeOnly fg.deobf("curse.maven:aether-255308:4505291")
-    runtimeOnly fg.deobf("curse.maven:wither-storm-621405:4468077")
+    //runtimeOnly fg.deobf("curse.maven:aether-255308:4505291")
 }
 
 jar {

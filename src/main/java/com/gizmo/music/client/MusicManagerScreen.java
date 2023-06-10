@@ -1,11 +1,10 @@
 package com.gizmo.music.client;
 
-import com.electronwill.nightconfig.core.CommentedConfig;
 import com.gizmo.music.MusicConfig;
 import com.gizmo.music.MusicManager;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
@@ -16,8 +15,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.glfw.GLFW;
 
@@ -77,24 +74,23 @@ public class MusicManagerScreen extends Screen {
 	}
 
 	@Override
-	public void render(PoseStack stack, int x, int y, float partialTicks) {
-		RenderSystem.setShaderTexture(0, TEXTURE);
-		blit(stack, this.leftPos, this.topPos, 0, 0, 142, 86);
-		super.render(stack, x, y, partialTicks);
-		this.font.draw(stack, this.title, (float)this.leftPos + 50 - this.title.getString().length(), (float)this.topPos + 6, 4210752);
-		this.renderHoverTooltips(stack, x, y);
-		Minecraft.getInstance().getItemRenderer().renderAndDecorateFakeItem(stack, new ItemStack(Items.MUSIC_DISC_CAT), this.leftPos + 26, this.topPos + 22);
+	public void render(GuiGraphics graphics, int x, int y, float partialTicks) {
+		graphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, 142, 86);
+		super.render(graphics, x, y, partialTicks);
+		graphics.drawString(this.font, this.title, this.leftPos + 50 - this.title.getString().length(), this.topPos + 6, 4210752, false);
+		this.renderHoverTooltips(graphics, x, y);
+		graphics.renderItem(new ItemStack(Items.MUSIC_DISC_CAT), this.leftPos + 26, this.topPos + 22);
 	}
 
-	private void renderHoverTooltips(PoseStack stack, int x, int y) {
+	private void renderHoverTooltips(GuiGraphics graphics, int x, int y) {
 		if (this.isHovering(44, 24, 12, 12, x, y)) {
-			this.renderTooltip(stack, Minecraft.getInstance().font.split(Component.translatable("gui.musicmanager.display_record_toast.desc"), 200), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.display_record_toast.desc"), 200), x, y);
 		} else if (this.isHovering(101, 24, 12, 12, x, y)) {
-			this.renderTooltip(stack, Minecraft.getInstance().font.split(Component.translatable("gui.musicmanager.play_toast_sound.desc"), 175), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.play_toast_sound.desc"), 175), x, y);
 		} else if (this.isHovering(25, 51, 32, 12, x, y) && !this.minDelay.isFocused()) {
-			this.renderTooltip(stack, Minecraft.getInstance().font.split(Component.translatable("gui.musicmanager.min_song_delay.desc"), 200), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.min_song_delay.desc"), 200), x, y);
 		} else if (this.isHovering(85, 51, 32, 12, x, y) && !this.maxDelay.isFocused()) {
-			this.renderTooltip(stack, Minecraft.getInstance().font.split(Component.translatable("gui.musicmanager.max_song_delay.desc"), 175), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.max_song_delay.desc"), 175), x, y);
 		}
 	}
 
@@ -161,12 +157,11 @@ public class MusicManagerScreen extends Screen {
 		}
 
 		@Override
-		public void renderWidget(PoseStack stack, int x, int y, float partialTicks) {
-			RenderSystem.setShaderTexture(0, TEXTURE);
+		public void renderWidget(GuiGraphics graphics, int x, int y, float partialTicks) {
 			RenderSystem.enableDepthTest();
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, this.alpha);
 			RenderSystem.enableBlend();
-			blit(stack, this.getX(), this.getY(), this.isHovered() ? 14 : 0, this.selected ? 100 : 86, 14, 14);
+			graphics.blit(TEXTURE, this.getX(), this.getY(), this.isHovered() ? 14 : 0, this.selected ? 100 : 86, 14, 14);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		}
 	}

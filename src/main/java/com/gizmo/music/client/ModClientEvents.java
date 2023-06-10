@@ -41,7 +41,7 @@ public class ModClientEvents {
 		@SubscribeEvent
 		public static void openManagerScreen(InputEvent.Key event) {
 			if (event.getAction() == GLFW.GLFW_PRESS && Minecraft.getInstance().player != null && Minecraft.getInstance().screen == null) {
-				if (Minecraft.getInstance().getOverlay() == null && (Minecraft.getInstance().screen == null || Minecraft.getInstance().screen.passEvents)) {
+				if (Minecraft.getInstance().getOverlay() == null && Minecraft.getInstance().screen == null) {
 					if (event.getKey() == openScreen.getKey().getValue() && openScreen.consumeClick()) {
 						Minecraft.getInstance().setScreen(new MusicManagerScreen());
 					}

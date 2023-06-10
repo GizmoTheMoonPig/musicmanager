@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[46,)"
 license= "MIT"
 
 [[mods]]
@@ -19,13 +19,13 @@ displayTest="IGNORE_ALL_VERSION"
 [[dependencies.musicmanager]]
     modId="forge"
     mandatory=true
-    versionRange="[45,)"
+    versionRange="[46,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.musicmanager]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.4]"
+    versionRange="[1.20]"
     ordering="NONE"
     side="BOTH"

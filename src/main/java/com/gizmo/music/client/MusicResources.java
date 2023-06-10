@@ -22,9 +22,7 @@ public class MusicResources {
 
     /* RELOAD LISTENER */
 
-    static final ResourceManagerReloadListener LISTENER = resourceManager -> {
-        reloadDimensionIcons(resourceManager);
-    };
+    static final ResourceManagerReloadListener LISTENER = MusicResources::reloadDimensionIcons;
 
     private static void reloadDimensionIcons(ResourceManager resourceManager) {
         // clear existing icons

@@ -1,13 +1,10 @@
 package com.gizmo.music.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.toasts.Toast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.ItemStack;
@@ -34,33 +31,27 @@ public final class MusicToast implements Toast {
 	}
 
 	@Override
-	public Visibility render(@NotNull PoseStack stack, @NotNull ToastComponent manager, long startTime) {
-		RenderSystem.setShader(GameRenderer::getPositionTexShader);
-		RenderSystem.setShaderTexture(0, TEXTURE);
-		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-
+	public Visibility render(@NotNull GuiGraphics graphics, @NotNull ToastComponent component, long startTime) {
 		int height = this.height();
 		if (this.width() == 160 && this.getDescription().size() <= 1) {
-			GuiComponent.blit(stack, 0, 0, 0, 0, this.width(), height);
+			graphics.blit(TEXTURE, 0, 0, 0, 0, this.width(), height);
 		} else {
 			int m = Math.min(4, height - 28);
-			this.renderBackgroundRow(stack, this.width(), 0, 0, 28);
+			this.renderBackgroundRow(graphics, this.width(), 0, 0, 28);
 
 			for (int n = 28; n < height - m; n += 10) {
-				this.renderBackgroundRow(stack, this.width(), 16, n, Math.min(16, height - n - m));
+				this.renderBackgroundRow(graphics, this.width(), 16, n, Math.min(16, height - n - m));
 			}
 
-			this.renderBackgroundRow(stack, this.width(), 32 - m, height - m, m);
+			this.renderBackgroundRow(graphics, this.width(), 32 - m, height - m, m);
 		}
-		manager.getMinecraft().font.draw(stack, Component.translatable("sounds.musicmanager.now_playing"), TEXT_LEFT_MARGIN, 7.0F, 5046016);
+		graphics.drawString(component.getMinecraft().font, Component.translatable("sounds.musicmanager.now_playing"), TEXT_LEFT_MARGIN, 7, 5046016, false);
 
 		for (int i = 0; i < this.getDescription().size(); ++i) {
-			manager.getMinecraft().font.draw(stack, this.getDescription().get(i), TEXT_LEFT_MARGIN, (float) (18 + i * 12), -1);
+			graphics.drawString(component.getMinecraft().font, this.getDescription().get(i), TEXT_LEFT_MARGIN, (18 + i * 12), -1, false);
 		}
 
-		stack.pushPose();
-		manager.getMinecraft().getItemRenderer().renderAndDecorateFakeItem(stack, this.getIcon(), 9, (height / 2) - (16 / 2));
-		stack.popPose();
+		graphics.renderItem(this.getIcon(), 9, (height / 2) - (16 / 2));
 
 		return startTime >= 5000L ? Visibility.HIDE : Visibility.SHOW;
 	}
@@ -75,16 +66,16 @@ public final class MusicToast implements Toast {
 		return Toast.super.slotCount();
 	}
 
-	private void renderBackgroundRow(PoseStack stack, int i, int vOffset, int y, int vHeight) {
+	private void renderBackgroundRow(GuiGraphics graphics, int i, int vOffset, int y, int vHeight) {
 		int uWidth = vOffset == 0 ? 20 : 5;
 		int n = Math.min(60, i - uWidth);
-		GuiComponent.blit(stack, 0, y, 0, vOffset, uWidth, vHeight);
+		graphics.blit(TEXTURE, 0, y, 0, vOffset, uWidth, vHeight);
 
 		for (int o = uWidth; o < i - n; o += 64) {
-			GuiComponent.blit(stack, o, y, 32, vOffset, Math.min(64, i - o - n), vHeight);
+			graphics.blit(TEXTURE, o, y, 32, vOffset, Math.min(64, i - o - n), vHeight);
 		}
 
-		GuiComponent.blit(stack, i - n, y, 160 - n, vOffset, n, vHeight);
+		graphics.blit(TEXTURE, i - n, y, 160 - n, vOffset, n, vHeight);
 	}
 
 	public List<FormattedCharSequence> getDescription() {

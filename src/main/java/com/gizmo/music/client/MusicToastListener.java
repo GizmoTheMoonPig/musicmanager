@@ -3,19 +3,15 @@ package com.gizmo.music.client;
 import com.gizmo.music.MusicManager;
 import com.gizmo.music.ToastUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.sounds.SoundEventListener;
 import net.minecraft.client.sounds.WeighedSoundEvents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.RecordItem;
 import net.minecraftforge.common.MinecraftForge;
-
-import java.util.List;
 
 public class MusicToastListener implements SoundEventListener {
 
