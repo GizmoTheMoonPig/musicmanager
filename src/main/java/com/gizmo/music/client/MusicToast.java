@@ -56,16 +56,6 @@ public final class MusicToast implements Toast {
 		return startTime >= 5000L ? Visibility.HIDE : Visibility.SHOW;
 	}
 
-	@Override
-	public int height() {
-		return 20 + Math.max(1, this.getDescription().size()) * 12;
-	}
-
-	@Override
-	public int slotCount() {
-		return Toast.super.slotCount();
-	}
-
 	private void renderBackgroundRow(GuiGraphics graphics, int i, int vOffset, int y, int vHeight) {
 		int uWidth = vOffset == 0 ? 20 : 5;
 		int n = Math.min(60, i - uWidth);
@@ -97,14 +87,14 @@ public final class MusicToast implements Toast {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, icon);
+		return Objects.hash(this.description, this.icon);
 	}
 
 	@Override
 	public String toString() {
 		return "MusicToast[" +
-				"description=" + description + ", " +
-				"stack=" + icon + ']';
+				"description=" + this.description + ", " +
+				"stack=" + this.icon + ']';
 	}
 
 }
