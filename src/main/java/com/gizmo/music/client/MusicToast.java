@@ -32,7 +32,7 @@ public final class MusicToast implements Toast {
 
 	@Override
 	public Visibility render(@NotNull GuiGraphics graphics, @NotNull ToastComponent component, long startTime) {
-		int height = this.height();
+		int height = 20 + Math.max(1, this.getDescription().size()) * 12;
 		if (this.width() == 160 && this.getDescription().size() <= 1) {
 			graphics.blit(TEXTURE, 0, 0, 0, 0, this.width(), height);
 		} else {
