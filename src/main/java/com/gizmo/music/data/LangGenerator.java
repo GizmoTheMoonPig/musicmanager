@@ -12,6 +12,7 @@ public class LangGenerator extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		add("keybind.musicmanager.open", "Open Music Manager Screen");
+		add("keybind.musicmanager.show_toast", "Show Last Played Track Again");
 
 		add("gui.musicmanager.music_manager", "Music Manager");
 		add("gui.musicmanager.display_record_toast", "Display Toasts for Records");
@@ -155,7 +156,7 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.the_bumblezone.music.honey_bee_rat_faced_boy", "Rat Faced Boy - Honey Bee");
 		add("sounds.musicmanager.the_bumblezone.music.la_bee_da_loca", "LudoCrypt - La Bee-da Loca");
 		add("sounds.musicmanager.the_bumblezone.music.bee_laxing_with_the_hom_bees", "LudoCrypt - Bee-laxing with the Hom-bees");
-		add("sounds.musicmanager.the_bumblezone.music.bee_ware_of_the_temple_stereo", "LudoCrypt - Bee-ware of the Temple");
+		//add("sounds.musicmanager.the_bumblezone.music.bee_ware_of_the_temple_stereo", "LudoCrypt - Bee-ware of the Temple");
 		add("sounds.musicmanager.the_bumblezone.music.knowing_renren_stereo", "RenRen - Knowing");
 		add("sounds.musicmanager.the_bumblezone.music.radiance_renren_stereo", "RenRen - Radiance");
 		add("sounds.musicmanager.the_bumblezone.music.life_renren_stereo", "RenRen - Life");
