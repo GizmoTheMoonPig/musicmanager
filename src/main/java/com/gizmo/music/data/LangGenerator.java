@@ -83,9 +83,9 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.minecraft.music.game.wending", "Lena Raine - Wending");
 
 		add("sounds.musicmanager.minecraft.music.game.ancestry", "Lena Raine - Ancestry");
-		add("sounds.musicmanager.minecraft.music.game.labyrinthine", "Lena Raine - Labyrinthine");
-		add("sounds.musicmanager.minecraft.music.game.aerie", "Lena Raine - Aerie");
-		add("sounds.musicmanager.minecraft.music.game.firebugs", "Lena Raine - Firebugs");
+		add("sounds.musicmanager.minecraft.music.game.swamp.labyrinthine", "Lena Raine - Labyrinthine");
+		add("sounds.musicmanager.minecraft.music.game.swamp.aerie", "Lena Raine - Aerie");
+		add("sounds.musicmanager.minecraft.music.game.swamp.firebugs", "Lena Raine - Firebugs");
 
 		add("sounds.musicmanager.minecraft.music.game.a_familiar_room", "Aaron Cherof - A Familiar Room");
 		add("sounds.musicmanager.minecraft.music.game.bromeliad", "Aaron Cherof - Bromeliad");
