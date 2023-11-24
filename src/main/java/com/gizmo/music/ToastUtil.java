@@ -58,8 +58,13 @@ public class ToastUtil {
 	@Nullable
 	public static Component getSoundName(SoundInstance instance) {
 		String soundLocation = instance.getSound().getLocation().toString().replace('/', '.').replace(':', '.');
-		if (I18n.exists("sounds.musicmanager." + soundLocation)) {
-			return Component.translatable("sounds.musicmanager." + soundLocation);
+		String unlocalizedSound = "sounds.musicmanager." + soundLocation;
+		if (I18n.exists(unlocalizedSound)) {
+			return Component.translatable(unlocalizedSound);
+		}
+		if (MusicManager.DEBUG_MODE) {
+			MusicManager.LOGGER.info("Music Manager attempted to create a toast for the track {}", unlocalizedSound);
+			return Component.translatable(unlocalizedSound);
 		}
 		return null;
 	}
