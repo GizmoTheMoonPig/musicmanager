@@ -1,7 +1,7 @@
 package com.gizmo.music.client;
 
+import com.gizmo.music.FileToIdConverter;
 import com.gizmo.music.MusicManager;
-import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;

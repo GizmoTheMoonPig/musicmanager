@@ -3,8 +3,9 @@ package com.gizmo.music.client;
 import com.gizmo.music.MusicConfig;
 import com.gizmo.music.MusicManager;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
@@ -28,7 +29,6 @@ public class MusicManagerScreen extends Screen {
 	private CheckBox playToastSound;
 	private EditBox minDelay;
 	private EditBox maxDelay;
-	private MusicConfig newConfig;
 
 	public MusicManagerScreen() {
 		super(Component.translatable("gui.musicmanager.music_manager"));
@@ -49,7 +49,7 @@ public class MusicManagerScreen extends Screen {
 		this.minDelay.setFilter(s -> StringUtils.isNumeric(s) || s.isEmpty());
 		this.minDelay.setBordered(false);
 		this.minDelay.setTextColor(16777215);
-		this.minDelay.setFocused(false);
+		this.minDelay.setFocus(false);
 		this.minDelay.setValue(String.valueOf(MusicManager.minSongDelay));
 		this.addRenderableWidget(this.minDelay);
 
@@ -58,12 +58,12 @@ public class MusicManagerScreen extends Screen {
 		this.maxDelay.setFilter(s -> StringUtils.isNumeric(s) || s.isEmpty());
 		this.maxDelay.setBordered(false);
 		this.maxDelay.setTextColor(16777215);
-		this.maxDelay.setFocused(false);
+		this.maxDelay.setFocus(false);
 		this.maxDelay.setValue(String.valueOf(MusicManager.maxSongDelay));
 		this.addRenderableWidget(this.maxDelay);
 
-		this.addRenderableWidget(Button.builder(Component.translatable("gui.musicmanager.save"), button -> this.onClose()).bounds(this.leftPos + 14, this.topPos + 69, 54, 12).build());
-		this.addRenderableWidget(Button.builder(Component.translatable("gui.musicmanager.exit"), button -> Minecraft.getInstance().popGuiLayer()).bounds(this.leftPos + 74, this.topPos + 69, 54, 12).build());
+		this.addRenderableWidget(new Button(this.leftPos + 14, this.topPos + 69, 54, 12, Component.translatable("gui.musicmanager.save"), button -> this.onClose()));
+		this.addRenderableWidget(new Button(this.leftPos + 74, this.topPos + 69, 54, 12, Component.translatable("gui.musicmanager.exit"), button -> Minecraft.getInstance().popGuiLayer()));
 	}
 
 	@Override
@@ -74,23 +74,24 @@ public class MusicManagerScreen extends Screen {
 	}
 
 	@Override
-	public void render(GuiGraphics graphics, int x, int y, float partialTicks) {
-		graphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, 142, 86);
-		super.render(graphics, x, y, partialTicks);
-		graphics.drawString(this.font, this.title, this.leftPos + 50 - this.title.getString().length(), this.topPos + 6, 4210752, false);
-		this.renderHoverTooltips(graphics, x, y);
-		graphics.renderItem(new ItemStack(Items.MUSIC_DISC_CAT), this.leftPos + 26, this.topPos + 22);
+	public void render(PoseStack stack, int x, int y, float partialTicks) {
+		RenderSystem.setShaderTexture(0, TEXTURE);
+		this.blit(stack, this.leftPos, this.topPos, 0, 0, 142, 86);
+		super.render(stack, x, y, partialTicks);
+		this.font.draw(stack, this.title, this.leftPos + 50 - this.title.getString().length(), this.topPos + 6, 4210752);
+		this.renderHoverTooltips(stack, x, y);
+		Minecraft.getInstance().getItemRenderer().renderGuiItem(new ItemStack(Items.MUSIC_DISC_CAT), this.leftPos + 26, this.topPos + 22);
 	}
 
-	private void renderHoverTooltips(GuiGraphics graphics, int x, int y) {
+	private void renderHoverTooltips(PoseStack stack, int x, int y) {
 		if (this.isHovering(44, 24, 12, 12, x, y)) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.display_record_toast.desc"), 200), x, y);
+			this.renderTooltip(stack, this.font.split(Component.translatable("gui.musicmanager.display_record_toast.desc"), 200), x, y);
 		} else if (this.isHovering(101, 24, 12, 12, x, y)) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.play_toast_sound.desc"), 175), x, y);
+			this.renderTooltip(stack, this.font.split(Component.translatable("gui.musicmanager.play_toast_sound.desc"), 175), x, y);
 		} else if (this.isHovering(25, 51, 32, 12, x, y) && !this.minDelay.isFocused()) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.min_song_delay.desc"), 200), x, y);
+			this.renderTooltip(stack, this.font.split(Component.translatable("gui.musicmanager.min_song_delay.desc"), 200), x, y);
 		} else if (this.isHovering(85, 51, 32, 12, x, y) && !this.maxDelay.isFocused()) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.max_song_delay.desc"), 175), x, y);
+			this.renderTooltip(stack, this.font.split(Component.translatable("gui.musicmanager.max_song_delay.desc"), 175), x, y);
 		}
 	}
 
@@ -145,7 +146,7 @@ public class MusicManagerScreen extends Screen {
 		}
 
 		@Override
-		protected void updateWidgetNarration(NarrationElementOutput output) {
+		public void updateNarration(NarrationElementOutput output) {
 			output.add(NarratedElementType.TITLE, this.createNarrationMessage());
 			if (this.active) {
 				if (this.isFocused()) {
@@ -157,11 +158,12 @@ public class MusicManagerScreen extends Screen {
 		}
 
 		@Override
-		public void renderWidget(GuiGraphics graphics, int x, int y, float partialTicks) {
+		public void render(PoseStack stack, int x, int y, float partialTicks) {
 			RenderSystem.enableDepthTest();
+			RenderSystem.setShaderTexture(0, TEXTURE);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, this.alpha);
 			RenderSystem.enableBlend();
-			graphics.blit(TEXTURE, this.getX(), this.getY(), this.isHovered() ? 14 : 0, this.selected ? 100 : 86, 14, 14);
+			this.blit(stack, this.x, this.y, this.isHoveredOrFocused() ? 14 : 0, this.selected ? 100 : 86, 14, 14);
 			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		}
 	}

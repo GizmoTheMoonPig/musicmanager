@@ -1,12 +1,12 @@
 package com.gizmo.music.data;
 
 import com.gizmo.music.MusicManager;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class LangGenerator extends LanguageProvider {
-	public LangGenerator(PackOutput output) {
-		super(output, MusicManager.MODID, "en_us");
+	public LangGenerator(DataGenerator generator) {
+		super(generator, MusicManager.MODID, "en_us");
 	}
 
 	@Override
