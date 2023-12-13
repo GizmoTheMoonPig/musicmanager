@@ -1,7 +1,7 @@
 package com.gizmo.music.mixin;
 
 import com.gizmo.music.MusicManager;
-import com.gizmo.music.client.MusicToast;
+import com.gizmo.music.MusicToast;
 import net.minecraft.client.gui.components.toasts.Toast;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.sounds.SoundManager;

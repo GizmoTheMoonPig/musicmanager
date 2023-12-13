@@ -98,13 +98,6 @@ repositories {
 dependencies {
     minecraft "net.neoforged:forge:${project.minecraft_version}-${project.neo_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-
-    //runtimeOnly fg.deobf("teamtwilight:twilightforest:4.3.1759:universal")
-    runtimeOnly fg.deobf("curse.maven:blue-skies-312918:4765673")
-    runtimeOnly fg.deobf("curse.maven:gel-api-378802:4765568")
-    //runtimeOnly fg.deobf("curse.maven:bumblezone-362479:4777096")
-    //runtimeOnly fg.deobf("curse.maven:undergarden-379849:4682838")
-    //runtimeOnly fg.deobf("curse.maven:aether-255308:4771519")
 }
 
 jar {
