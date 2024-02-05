@@ -2,11 +2,10 @@ package com.gizmo.music.api;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.Cancelable;
-import net.minecraftforge.eventbus.api.Event;
+import net.neoforged.bus.api.Event;
+import net.neoforged.bus.api.ICancellableEvent;
 
-@Cancelable
-public class MusicToastEvent extends Event {
+public class MusicToastEvent extends Event implements ICancellableEvent {
     private Component text;
     private ItemStack icon;
 

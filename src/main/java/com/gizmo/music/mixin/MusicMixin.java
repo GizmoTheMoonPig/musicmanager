@@ -10,14 +10,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Music.class)
 public class MusicMixin {
 
-	@Inject(method = "getMinDelay", at = @At("RETURN"), cancellable = true)
+	@Inject(method = "getMinDelay", at = @At("RETURN"), cancellable = true, remap = false)
 	public void musicManager$setConfigBasedMinDelay(CallbackInfoReturnable<Integer> ci) {
 		if (MusicManager.minSongDelay > -1 && ci.getReturnValueI() > 0) {
 			ci.setReturnValue(Math.round((Math.min(MusicManager.minSongDelay, MusicManager.maxSongDelay) + 1) * 20.0F));
 		}
 	}
 
-	@Inject(method = "getMaxDelay", at = @At("RETURN"), cancellable = true)
+	@Inject(method = "getMaxDelay", at = @At("RETURN"), cancellable = true, remap = false)
 	public void musicManager$setConfigBasedMaxDelay(CallbackInfoReturnable<Integer> ci) {
 		if (MusicManager.maxSongDelay > -1 && ci.getReturnValueI() > 0) {
 			ci.setReturnValue(Math.round((Math.max(MusicManager.minSongDelay, MusicManager.maxSongDelay) + 1) * 20.0F));

@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[46,)"
+loaderVersion="[1,)"
 license= "MIT"
 
 [[mods]]
@@ -17,15 +17,18 @@ Press M to open the music manager screen.
 displayTest="IGNORE_ALL_VERSION"
 
 [[dependencies.musicmanager]]
-    modId="forge"
-    mandatory=true
-    versionRange="[46,)"
+    modId="neoforge"
+    type="required"
+    versionRange="[1,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.musicmanager]]
     modId="minecraft"
-    mandatory=true
-    versionRange="[1.20,1.20.1]"
+    type="required"
+    versionRange="[1.20.4]"
     ordering="NONE"
     side="BOTH"
+
+[[mixins]]
+    config="musicmanager.mixins.json"

@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
 
-	@Redirect(method = "playStreamingMusic(Lnet/minecraft/sounds/SoundEvent;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/RecordItem;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;setNowPlaying(Lnet/minecraft/network/chat/Component;)V"))
+	@Redirect(method = "playStreamingMusic(Lnet/minecraft/sounds/SoundEvent;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/RecordItem;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;setNowPlaying(Lnet/minecraft/network/chat/Component;)V", remap = false), remap = false)
 	private void modifyRecordPlayingOverlay(Gui gui, Component component) {
 		if (!MusicManager.displayRecordToast) {
 			gui.setNowPlaying(component);

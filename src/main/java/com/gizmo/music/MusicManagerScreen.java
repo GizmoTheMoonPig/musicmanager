@@ -1,12 +1,12 @@
 package com.gizmo.music;
 
-import com.gizmo.music.MusicManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.narration.NarratedElementType;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.Screen;
@@ -65,19 +65,17 @@ public class MusicManagerScreen extends Screen {
 	}
 
 	@Override
-	public void tick() {
-		super.tick();
-		this.minDelay.tick();
-		this.maxDelay.tick();
-	}
-
-	@Override
 	public void render(GuiGraphics graphics, int x, int y, float partialTicks) {
-		graphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, 142, 86);
 		super.render(graphics, x, y, partialTicks);
 		graphics.drawString(this.font, this.title, this.leftPos + 50 - this.title.getString().length(), this.topPos + 6, 4210752, false);
 		this.renderHoverTooltips(graphics, x, y);
 		graphics.renderItem(new ItemStack(Items.MUSIC_DISC_CAT), this.leftPos + 26, this.topPos + 22);
+	}
+
+	@Override
+	public void renderBackground(GuiGraphics graphics, int x, int y, float partialTicks) {
+		super.renderBackground(graphics, x, y, partialTicks);
+		graphics.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, 142, 86);
 	}
 
 	private void renderHoverTooltips(GuiGraphics graphics, int x, int y) {
@@ -130,6 +128,11 @@ public class MusicManagerScreen extends Screen {
 	}
 
 	public static class CheckBox extends AbstractButton {
+		private static final ResourceLocation CHECKBOX_SELECTED_HOVERED_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box_selected_hovered");
+		private static final ResourceLocation CHECKBOX_SELECTED_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box_selected");
+		private static final ResourceLocation CHECKBOX_HOVERED_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box_hovered");
+		private static final ResourceLocation CHECKBOX_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box");
+
 		private boolean selected;
 
 		public CheckBox(int x, int y, Component message, boolean selected) {
@@ -157,10 +160,16 @@ public class MusicManagerScreen extends Screen {
 		@Override
 		public void renderWidget(GuiGraphics graphics, int x, int y, float partialTicks) {
 			RenderSystem.enableDepthTest();
-			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, this.alpha);
+			graphics.setColor(1.0F, 1.0F, 1.0F, this.alpha);
 			RenderSystem.enableBlend();
-			graphics.blit(TEXTURE, this.getX(), this.getY(), this.isHovered() ? 14 : 0, this.selected ? 100 : 86, 14, 14);
-			RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+			ResourceLocation resourcelocation;
+			if (this.selected) {
+				resourcelocation = this.isHoveredOrFocused() ? CHECKBOX_SELECTED_HOVERED_SPRITE : CHECKBOX_SELECTED_SPRITE;
+			} else {
+				resourcelocation = this.isHoveredOrFocused() ? CHECKBOX_HOVERED_SPRITE : CHECKBOX_SPRITE;
+			}
+			graphics.blitSprite(resourcelocation, this.getX(), this.getY(), 14, 14);
+			graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
 		}
 	}
 }

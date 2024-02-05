@@ -7,6 +7,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.toasts.Toast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +18,7 @@ import java.util.Objects;
 //Heavily modified SystemToast
 public final class MusicToast implements Toast {
 
+	private static final ResourceLocation TEXTURE = new ResourceLocation("toast/advancement");
 	public static final int TEXT_LEFT_MARGIN = 30;
 	public static final int TEXT_RIGHT_MARGIN = 7;
 	private Component rawDesc;
@@ -58,7 +60,7 @@ public final class MusicToast implements Toast {
 			this.changed = false;
 		}
 		if (this.width() == 160 && this.getDescription().size() <= 1) {
-			graphics.blit(TEXTURE, 0, 0, 0, 0, this.width(), this.height());
+			graphics.blitSprite(TEXTURE, 0, 0, this.width(), this.height());
 		} else {
 			int m = Math.min(4, this.height() - 28);
 			this.renderBackgroundRow(graphics, 0, 0, 28);
@@ -80,16 +82,16 @@ public final class MusicToast implements Toast {
 		return (startTime - this.lastChanged) < (double)5000L * component.getNotificationDisplayTimeMultiplier() ? Toast.Visibility.SHOW : Toast.Visibility.HIDE;
 	}
 
-	private void renderBackgroundRow(GuiGraphics graphics, int vOffset, int y, int vHeight) {
-		int uWidth = vOffset == 0 ? 20 : 5;
-		int n = Math.min(60, this.width() - uWidth);
-		graphics.blit(TEXTURE, 0, y, 0, vOffset, uWidth, vHeight);
+	private void renderBackgroundRow(GuiGraphics graphics, int p_282371_, int p_283613_, int p_282880_) {
+		int i = p_282371_ == 0 ? 20 : 5;
+		int j = Math.min(60, this.width() - i);
+		graphics.blitSprite(TEXTURE, 160, 32, 0, p_282371_, 0, p_283613_, i, p_282880_);
 
-		for (int o = uWidth; o < this.width() - n; o += 64) {
-			graphics.blit(TEXTURE, o, y, 32, vOffset, Math.min(64, this.width() - o - n), vHeight);
+		for(int k = i; k < this.width() - j; k += 64) {
+			graphics.blitSprite(TEXTURE, 160, 32, 32, p_282371_, k, p_283613_, Math.min(64, this.width() - k - j), p_282880_);
 		}
 
-		graphics.blit(TEXTURE, this.width() - n, y, 160 - n, vOffset, n, vHeight);
+		graphics.blitSprite(TEXTURE, 160, 32, 160 - j, p_282371_, this.width() - j, p_283613_, j, p_282880_);
 	}
 
 	@Override

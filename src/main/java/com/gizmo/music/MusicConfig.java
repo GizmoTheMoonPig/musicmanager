@@ -1,15 +1,15 @@
 package com.gizmo.music;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class MusicConfig {
 
-	public final ForgeConfigSpec.BooleanValue displayRecordToast;
-	public final ForgeConfigSpec.BooleanValue silentMusicToasts;
-	public final ForgeConfigSpec.IntValue minSongDelay;
-	public final ForgeConfigSpec.IntValue maxSongDelay;
+	public final ModConfigSpec.BooleanValue displayRecordToast;
+	public final ModConfigSpec.BooleanValue silentMusicToasts;
+	public final ModConfigSpec.IntValue minSongDelay;
+	public final ModConfigSpec.IntValue maxSongDelay;
 
-	public MusicConfig(ForgeConfigSpec.Builder builder) {
+	public MusicConfig(ModConfigSpec.Builder builder) {
 		this.displayRecordToast = builder.define("displayRecordToast", true);
 		this.silentMusicToasts = builder.define("silentMusicToasts", true);
 		this.minSongDelay = builder.defineInRange("minSongDelay", 10, -1, Integer.MAX_VALUE);

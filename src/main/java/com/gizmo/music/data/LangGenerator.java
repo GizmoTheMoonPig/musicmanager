@@ -2,7 +2,7 @@ package com.gizmo.music.data;
 
 import com.gizmo.music.MusicManager;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class LangGenerator extends LanguageProvider {
 	public LangGenerator(PackOutput output) {

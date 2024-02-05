@@ -6,10 +6,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class IconOverrideGenerator extends IconOverrideProvider {
-	protected IconOverrideGenerator(PackOutput output, ExistingFileHelper helper) {
+	public IconOverrideGenerator(PackOutput output, ExistingFileHelper helper) {
 		super(output, helper);
 	}
 
