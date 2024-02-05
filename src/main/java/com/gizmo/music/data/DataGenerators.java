@@ -11,5 +11,6 @@ public class DataGenerators {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		event.getGenerator().addProvider(event.includeClient(), new LangGenerator(event.getGenerator()));
+		event.getGenerator().addProvider(event.includeClient(), new IconOverrideGenerator(event.getGenerator(), event.getExistingFileHelper()));
 	}
 }
