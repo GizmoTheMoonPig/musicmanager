@@ -1,7 +1,6 @@
 package com.gizmo.music.mixin;
 
 import com.gizmo.music.MusicManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.network.chat.Component;

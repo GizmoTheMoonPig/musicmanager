@@ -12,6 +12,7 @@ public class LangGenerator extends LanguageProvider {
 	@Override
 	protected void addTranslations() {
 		add("keybind.musicmanager.open", "Open Music Manager Screen");
+		add("keybind.musicmanager.show_toast", "Show Last Played Track Again");
 
 		add("gui.musicmanager.music_manager", "Music Manager");
 		add("gui.musicmanager.display_record_toast", "Display Toasts for Records");
@@ -82,9 +83,14 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.minecraft.music.game.wending", "Lena Raine - Wending");
 
 		add("sounds.musicmanager.minecraft.music.game.ancestry", "Lena Raine - Ancestry");
-		add("sounds.musicmanager.minecraft.music.game.labyrinthine", "Lena Raine - Labyrinthine");
-		add("sounds.musicmanager.minecraft.music.game.aerie", "Lena Raine - Aerie");
-		add("sounds.musicmanager.minecraft.music.game.firebugs", "Lena Raine - Firebugs");
+		add("sounds.musicmanager.minecraft.music.game.swamp.labyrinthine", "Lena Raine - Labyrinthine");
+		add("sounds.musicmanager.minecraft.music.game.swamp.aerie", "Lena Raine - Aerie");
+		add("sounds.musicmanager.minecraft.music.game.swamp.firebugs", "Lena Raine - Firebugs");
+
+		add("sounds.musicmanager.minecraft.music.game.a_familiar_room", "Aaron Cherof - A Familiar Room");
+		add("sounds.musicmanager.minecraft.music.game.bromeliad", "Aaron Cherof - Bromeliad");
+		add("sounds.musicmanager.minecraft.music.game.crescent_dunes", "Aaron Cherof - Crescent Dunes");
+		add("sounds.musicmanager.minecraft.music.game.echo_in_the_wind", "Aaron Cherof - Echo in the Wind");
 
 		add("sounds.musicmanager.twilightforest.music.findings", "MrCompost - Findings");
 		add("sounds.musicmanager.twilightforest.music.home", "MrCompost - Home");
@@ -105,6 +111,13 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.undergarden.music.pit_of_shivers", "ScreemBob - Pit of Shivers");
 		add("sounds.musicmanager.undergarden.music.smog", "ScreemBob - Smog");
 		add("sounds.musicmanager.undergarden.music.wrought", "ScreemBob - Wrought");
+
+		add("sounds.musicmanager.alexscaves.music.alloy_allure", "LudoCrypt - Alloy Allure");
+		add("sounds.musicmanager.alexscaves.music.arid_reverie", "Gatetoh - Arid Reverie");
+		add("sounds.musicmanager.alexscaves.music.forgotten_tides", "Gatetoh - Forgotten Tides");
+		add("sounds.musicmanager.alexscaves.music.paleoverdant", "Gatetoh - Paleoverdant");
+		add("sounds.musicmanager.alexscaves.music.ray", "RenRen - Ray");
+
 
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.blot", "LudoCrypt - Blot");
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.cortisol", "LudoCrypt - Cortisol");
@@ -139,15 +152,20 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.poison_boss", "Lachney - Poison Dance");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.poison_fanfare", "Lachney - Boss Fanfare");
 
-		add("sounds.musicmanager.the_bumblezone.flight_of_the_bumblebee_rimsky_korsakov", "Rimsky Korsakov - Flight of the Bumblebee");
-		add("sounds.musicmanager.the_bumblezone.honey_bee_rat_faced_boy", "Rat Faced Boy - Honey Bee");
-		add("sounds.musicmanager.the_bumblezone.la_bee_da_loca", "LudoCrypt - La Bee-da Loca");
-		add("sounds.musicmanager.the_bumblezone.bee_laxing_with_the_hom_bees", "LudoCrypt - Bee-laxing with the Hom-bees");
+		add("sounds.musicmanager.the_bumblezone.music.flight_of_the_bumblebee_rimsky_korsakov", "Rimsky Korsakov - Flight of the Bumblebee");
+		add("sounds.musicmanager.the_bumblezone.music.honey_bee_rat_faced_boy", "Rat Faced Boy - Honey Bee");
+		add("sounds.musicmanager.the_bumblezone.music.la_bee_da_loca", "LudoCrypt - La Bee-da Loca");
+		add("sounds.musicmanager.the_bumblezone.music.bee_laxing_with_the_hom_bees", "LudoCrypt - Bee-laxing with the Hom-bees");
+		add("sounds.musicmanager.the_bumblezone.music.bee_ware_of_the_temple_stereo", "LudoCrypt - Bee-ware of the Temple");
+		add("sounds.musicmanager.the_bumblezone.music.knowing_renren_stereo", "RenRen - Knowing");
+		add("sounds.musicmanager.the_bumblezone.music.radiance_renren_stereo", "RenRen - Radiance");
+		add("sounds.musicmanager.the_bumblezone.music.life_renren_stereo", "RenRen - Life");
 
 		add("sounds.musicmanager.aether.music.aether1", "Emile Van Krieken - Welcome to Paradise");
 		add("sounds.musicmanager.aether.music.aether2", "Emile Van Krieken - Wings");
 		add("sounds.musicmanager.aether.music.aether3", "Emile Van Krieken - Meadow");
 		add("sounds.musicmanager.aether.music.aether4", "Emile Van Krieken - Moa's Song");
+		add("sounds.musicmanager.aether.music.aether5", "Emile Van Krieken - Clouds");
 		add("sounds.musicmanager.aether.music.menu", "Emile Van Krieken - Float");
 	}
 }

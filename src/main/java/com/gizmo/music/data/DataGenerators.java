@@ -20,6 +20,7 @@ public class DataGenerators {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		event.getGenerator().addProvider(event.includeClient(), new LangGenerator(event.getGenerator().getPackOutput()));
+		event.getGenerator().addProvider(event.includeClient(), new IconOverrideGenerator(event.getGenerator().getPackOutput(), event.getExistingFileHelper()));
 		event.getGenerator().addProvider(true, new PackMetadataGenerator(event.getGenerator().getPackOutput()).add(PackMetadataSection.TYPE, new PackMetadataSection(
 				Component.literal("Music Manager Resources"),
 				DetectedVersion.BUILT_IN.getPackVersion(PackType.CLIENT_RESOURCES),

@@ -12,14 +12,14 @@ public class MusicMixin {
 
 	@Inject(method = "getMinDelay", at = @At("RETURN"), cancellable = true)
 	public void musicManager$setConfigBasedMinDelay(CallbackInfoReturnable<Integer> ci) {
-		if (MusicManager.minSongDelay > -1) {
+		if (MusicManager.minSongDelay > -1 && ci.getReturnValueI() > 0) {
 			ci.setReturnValue(Math.round((Math.min(MusicManager.minSongDelay, MusicManager.maxSongDelay) + 1) * 20.0F));
 		}
 	}
 
 	@Inject(method = "getMaxDelay", at = @At("RETURN"), cancellable = true)
 	public void musicManager$setConfigBasedMaxDelay(CallbackInfoReturnable<Integer> ci) {
-		if (MusicManager.maxSongDelay > -1) {
+		if (MusicManager.maxSongDelay > -1 && ci.getReturnValueI() > 0) {
 			ci.setReturnValue(Math.round((Math.max(MusicManager.minSongDelay, MusicManager.maxSongDelay) + 1) * 20.0F));
 		}
 	}
