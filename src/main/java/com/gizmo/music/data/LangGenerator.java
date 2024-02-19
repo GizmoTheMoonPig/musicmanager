@@ -28,70 +28,73 @@ public class LangGenerator extends LanguageProvider {
 		
 		add("sounds.musicmanager.now_playing", "Now Playing: ");
 
-		add("sounds.musicmanager.minecraft.music.menu.menu1", "C418 - Mutation");
-		add("sounds.musicmanager.minecraft.music.menu.menu2", "C418 - Moog City 2");
-		add("sounds.musicmanager.minecraft.music.menu.menu3", "C418 - Beginning 2");
-		add("sounds.musicmanager.minecraft.music.menu.menu4", "C418 - Floating Trees");
+		// Menu
+		add("sounds.musicmanager.minecraft.music.menu.beginning_2", "C418 - Beginning 2");
+		add("sounds.musicmanager.minecraft.music.menu.floating_trees", "C418 - Floating Trees");
+		add("sounds.musicmanager.minecraft.music.menu.moog_city_2", "C418 - Moog City 2");
+		add("sounds.musicmanager.minecraft.music.menu.mutation", "C418 - Mutation");
 
-		add("sounds.musicmanager.minecraft.music.game.calm1", "C418 - Minecraft");
-		add("sounds.musicmanager.minecraft.music.game.calm2", "C418 - Clark");
-		add("sounds.musicmanager.minecraft.music.game.calm3", "C418 - Sweden");
+		// Creative
+		add("sounds.musicmanager.minecraft.music.game.creative.aria_math", "C418 - Aria Math");
+		add("sounds.musicmanager.minecraft.music.game.creative.biome_fest", "C418 - Biome Fest");
+		add("sounds.musicmanager.minecraft.music.game.creative.blind_spots", "C418 - Blind Spots");
+		add("sounds.musicmanager.minecraft.music.game.creative.dreiton", "C418 - Dreiton");
+		add("sounds.musicmanager.minecraft.music.game.creative.haunt_muskie", "C418 - Haunt Muskie");
+		add("sounds.musicmanager.minecraft.music.game.creative.taswell", "C418 - Taswell");
 
-		add("sounds.musicmanager.minecraft.music.game.creative.creative1", "C418 - Biome Fest");
-		add("sounds.musicmanager.minecraft.music.game.creative.creative2", "C418 - Blind Spots");
-		add("sounds.musicmanager.minecraft.music.game.creative.creative3", "C418 - Haunt Muskie");
-		add("sounds.musicmanager.minecraft.music.game.creative.creative4", "C418 - Aria Math");
-		add("sounds.musicmanager.minecraft.music.game.creative.creative5", "C418 - Dreiton");
-		add("sounds.musicmanager.minecraft.music.game.creative.creative6", "C418 - Taswell");
-
-		add("sounds.musicmanager.minecraft.music.game.hal1", "C418 - Subwoofer Lullaby");
-		add("sounds.musicmanager.minecraft.music.game.hal2", "C418 - Living Mice");
-		add("sounds.musicmanager.minecraft.music.game.hal3", "C418 - Haggstrom");
-		add("sounds.musicmanager.minecraft.music.game.hal4", "C418 - Danny");
-
-		add("sounds.musicmanager.minecraft.music.game.nuance1", "C418 - Key");
-		add("sounds.musicmanager.minecraft.music.game.nuance2", "C418 - Oxygène");
-
-		add("sounds.musicmanager.minecraft.music.game.piano1", "C418 - Dry Hands");
-		add("sounds.musicmanager.minecraft.music.game.piano2", "C418 - Wet Hands");
-		add("sounds.musicmanager.minecraft.music.game.piano3", "C418 - Mice on Venus");
-
-		add("sounds.musicmanager.minecraft.music.game.water.shunji", "C418 - Shunji");
-		add("sounds.musicmanager.minecraft.music.game.water.axolotl", "C418 - Axolotl");
-		add("sounds.musicmanager.minecraft.music.game.water.dragon_fish", "C418 - Dragon Fish");
-
-		add("sounds.musicmanager.minecraft.music.game.nether.nether1", "C418 - Concrete Halls");
-		add("sounds.musicmanager.minecraft.music.game.nether.nether2", "C418 - Dead Voxel");
-		add("sounds.musicmanager.minecraft.music.game.nether.nether3", "C418 - Warmth");
-		add("sounds.musicmanager.minecraft.music.game.nether.nether4", "C418 - Ballad of the Cats");
-
-		add("sounds.musicmanager.minecraft.music.game.end.credits", "C418 - Alpha");
-		add("sounds.musicmanager.minecraft.music.game.end.boss", "C418 - Boss");
-		add("sounds.musicmanager.minecraft.music.game.end.end", "C418 - The End");
-
-		add("sounds.musicmanager.minecraft.music.game.nether.soulsand_valley.so_below", "Lena Raine - So Below");
-		add("sounds.musicmanager.minecraft.music.game.nether.nether_wastes.rubedo", "Lena Raine - Rubedo");
-		add("sounds.musicmanager.minecraft.music.game.nether.crimson_forest.chrysopoeia", "Lena Raine - Chrysopoeia");
-
+		// Game
+		add("sounds.musicmanager.minecraft.music.game.a_familiar_room", "Aaron Cherof - A Familiar Room");
 		add("sounds.musicmanager.minecraft.music.game.an_ordinary_day", "Kumi Tanioka - An Ordinary Day");
-		add("sounds.musicmanager.minecraft.music.game.comforting_memories", "Kumi Tanioka - Comforting Memories");
-		add("sounds.musicmanager.minecraft.music.game.floating_dream", "Kumi Tanioka - Floating Dream");
-		add("sounds.musicmanager.minecraft.music.game.infinite_amethyst", "Lena Raine - Infinite Amethyst");
-		add("sounds.musicmanager.minecraft.music.game.left_to_bloom", "Lena Raine - Left to Bloom");
-		add("sounds.musicmanager.minecraft.music.game.one_more_day", "Lena Raine - One More Day");
-		add("sounds.musicmanager.minecraft.music.game.stand_tall", "Lena Raine - Stand Tall");
-		add("sounds.musicmanager.minecraft.music.game.wending", "Lena Raine - Wending");
-
 		add("sounds.musicmanager.minecraft.music.game.ancestry", "Lena Raine - Ancestry");
-		add("sounds.musicmanager.minecraft.music.game.swamp.labyrinthine", "Lena Raine - Labyrinthine");
+		add("sounds.musicmanager.minecraft.music.game.bromeliad", "Aaron Cherof - Bromeliad");
+		add("sounds.musicmanager.minecraft.music.game.clark", "C418 - Clark");
+		add("sounds.musicmanager.minecraft.music.game.comforting_memories", "Kumi Tanioka - Comforting Memories");
+		add("sounds.musicmanager.minecraft.music.game.crescent_dunes", "Aaron Cherof - Crescent Dunes");
+		add("sounds.musicmanager.minecraft.music.game.danny", "C418 - Danny");
+		add("sounds.musicmanager.minecraft.music.game.dry_hands", "C418 - Dry Hands");
+		add("sounds.musicmanager.minecraft.music.game.echo_in_the_wind", "Aaron Cherof - Echo in the Wind");
+		add("sounds.musicmanager.minecraft.music.game.floating_dream", "Kumi Tanioka - Floating Dream");
+		add("sounds.musicmanager.minecraft.music.game.haggstrom", "C418 - Haggstrom");
+		add("sounds.musicmanager.minecraft.music.game.infinite_amethyst", "Lena Raine - Infinite Amethyst");
+		add("sounds.musicmanager.minecraft.music.game.key", "C418 - Key");
+		add("sounds.musicmanager.minecraft.music.game.left_to_bloom", "Lena Raine - Left to Bloom");
+		add("sounds.musicmanager.minecraft.music.game.living_mice", "C418 - Living Mice");
+		add("sounds.musicmanager.minecraft.music.game.mice_on_venus", "C418 - Mice on Venus");
+		add("sounds.musicmanager.minecraft.music.game.minecraft", "C418 - Minecraft");
+		add("sounds.musicmanager.minecraft.music.game.one_more_day", "Lena Raine - One More Day");
+		add("sounds.musicmanager.minecraft.music.game.oxygene", "C418 - Oxygène");
+		add("sounds.musicmanager.minecraft.music.game.stand_tall", "Lena Raine - Stand Tall");
+		add("sounds.musicmanager.minecraft.music.game.subwoofer_lullaby", "C418 - Subwoofer Lullaby");
+		add("sounds.musicmanager.minecraft.music.game.sweden", "C418 - Sweden");
+		add("sounds.musicmanager.minecraft.music.game.wending", "Lena Raine - Wending");
+		add("sounds.musicmanager.minecraft.music.game.wet_hands", "C418 - Wet Hands");
+
+		// Swamp
 		add("sounds.musicmanager.minecraft.music.game.swamp.aerie", "Lena Raine - Aerie");
 		add("sounds.musicmanager.minecraft.music.game.swamp.firebugs", "Lena Raine - Firebugs");
+		add("sounds.musicmanager.minecraft.music.game.swamp.labyrinthine", "Lena Raine - Labyrinthine");
 
-		add("sounds.musicmanager.minecraft.music.game.a_familiar_room", "Aaron Cherof - A Familiar Room");
-		add("sounds.musicmanager.minecraft.music.game.bromeliad", "Aaron Cherof - Bromeliad");
-		add("sounds.musicmanager.minecraft.music.game.crescent_dunes", "Aaron Cherof - Crescent Dunes");
-		add("sounds.musicmanager.minecraft.music.game.echo_in_the_wind", "Aaron Cherof - Echo in the Wind");
+		// Water
+		add("sounds.musicmanager.minecraft.music.game.water.axolotl", "C418 - Axolotl");
+		add("sounds.musicmanager.minecraft.music.game.water.dragon_fish", "C418 - Dragon Fish");
+		add("sounds.musicmanager.minecraft.music.game.water.shuniji", "C418 - Shuniji");
 
+
+		// The Nether
+		add("sounds.musicmanager.minecraft.music.game.nether.ballad_of_the_cats", "C418 - Ballad of the Cats");
+		add("sounds.musicmanager.minecraft.music.game.nether.concrete_halls", "C418 - Concrete Halls");
+		add("sounds.musicmanager.minecraft.music.game.nether.crimson_forest.chrysopoeia", "Lena Raine - Chrysopoeia");
+		add("sounds.musicmanager.minecraft.music.game.nether.dead_voxel", "C418 - Dead Voxel");
+		add("sounds.musicmanager.minecraft.music.game.nether.nether_wastes.rubedo", "Lena Raine - Rubedo");
+		add("sounds.musicmanager.minecraft.music.game.nether.soulsand_valley.so_below", "Lena Raine - So Below");
+		add("sounds.musicmanager.minecraft.music.game.nether.warmth", "C418 - Warmth");
+
+		// The End
+		add("sounds.musicmanager.minecraft.music.game.end.alpha", "C418 - Alpha");
+		add("sounds.musicmanager.minecraft.music.game.end.boss", "C418 - Boss");
+		add("sounds.musicmanager.minecraft.music.game.end.the_end", "C418 - The End");
+
+		// Twilight Forest
 		add("sounds.musicmanager.twilightforest.music.findings", "MrCompost - Findings");
 		add("sounds.musicmanager.twilightforest.music.home", "MrCompost - Home");
 		add("sounds.musicmanager.twilightforest.music.maker", "MrCompost - Maker");
@@ -102,6 +105,7 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.twilightforest.music.thread", "MrCompost - Thread");
 		add("sounds.musicmanager.twilightforest.music.wayfarer", "MrCompost - Wayfarer");
 
+		// The Undergarden
 		add("sounds.musicmanager.undergarden.music.acasta_gneiss", "ScreemBob - Acasta Gneiss");
 		add("sounds.musicmanager.undergarden.music.all_that_wiggles_is_wood", "ScreemBob - All that Wiggles is Wood");
 		add("sounds.musicmanager.undergarden.music.brotherhood", "ScreemBob - Brotherhood");
@@ -112,19 +116,21 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.undergarden.music.smog", "ScreemBob - Smog");
 		add("sounds.musicmanager.undergarden.music.wrought", "ScreemBob - Wrought");
 
+		// Alex's Caves
 		add("sounds.musicmanager.alexscaves.music.alloy_allure", "LudoCrypt - Alloy Allure");
 		add("sounds.musicmanager.alexscaves.music.arid_reverie", "Gatetoh - Arid Reverie");
 		add("sounds.musicmanager.alexscaves.music.forgotten_tides", "Gatetoh - Forgotten Tides");
 		add("sounds.musicmanager.alexscaves.music.paleoverdant", "Gatetoh - Paleoverdant");
 		add("sounds.musicmanager.alexscaves.music.ray", "RenRen - Ray");
 
-
+		// Biomes O' Plenty
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.blot", "LudoCrypt - Blot");
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.cortisol", "LudoCrypt - Cortisol");
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.mesh", "LudoCrypt - Mesh");
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.redhead", "LudoCrypt - Redhead");
 		add("sounds.musicmanager.biomesoplenty.music.game.nether.timber", "LudoCrypt - Timber");
 
+		// Blue Skies
 		add("sounds.musicmanager.blue_skies.music.baneful", "Lachney - Baneful");
 		add("sounds.musicmanager.blue_skies.music.brightlands", "Lachney - Brightlands");
 		add("sounds.musicmanager.blue_skies.music.brisegel", "Lachney - Brisegel");
@@ -136,22 +142,27 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.blue_skies.music.snowcap", "Lachney - Snowcap");
 		add("sounds.musicmanager.blue_skies.music.turquoise", "Lachney - Turquoise");
 		add("sounds.musicmanager.blue_skies.music.whistleshell", "Lachney - Whistleshell");
-
 		add("sounds.musicmanager.blue_skies.music.dungeon.blinding_dungeon_ambience", "Lachney - Blinding Tower");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.blinding_boss", "Lachney - Blinding Jam");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.blinding_fanfare", "Lachney - Boss Fanfare");
-
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.generic_boss", "Lachney - Generic Boss");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.generic_fanfare", "Lachney - Boss Fanfare");
-
 		add("sounds.musicmanager.blue_skies.music.dungeon.nature_dungeon_ambience", "Lachney - Starlit Passageways");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.nature_boss", "Lachney - Nature Jive");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.nature_fanfare", "Lachney - Boss Fanfare");
-
 		add("sounds.musicmanager.blue_skies.music.dungeon.poison_dungeon_ambience", "Lachney - Venomous Tunnels");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.poison_boss", "Lachney - Poison Dance");
 		add("sounds.musicmanager.blue_skies.music.dungeon.boss.poison_fanfare", "Lachney - Boss Fanfare");
 
+		// The Aether
+		add("sounds.musicmanager.aether.music.aether1", "Emile Van Krieken - Welcome to Paradise");
+		add("sounds.musicmanager.aether.music.aether2", "Emile Van Krieken - Wings");
+		add("sounds.musicmanager.aether.music.aether3", "Emile Van Krieken - Meadow");
+		add("sounds.musicmanager.aether.music.aether4", "Emile Van Krieken - Moa's Song");
+		add("sounds.musicmanager.aether.music.aether5", "Emile Van Krieken - Clouds");
+		add("sounds.musicmanager.aether.music.menu", "Emile Van Krieken - Float");
+
+		// The Bumblezone
 		add("sounds.musicmanager.the_bumblezone.music.flight_of_the_bumblebee_rimsky_korsakov", "Rimsky Korsakov - Flight of the Bumblebee");
 		add("sounds.musicmanager.the_bumblezone.music.honey_bee_rat_faced_boy", "Rat Faced Boy - Honey Bee");
 		add("sounds.musicmanager.the_bumblezone.music.la_bee_da_loca", "LudoCrypt - La Bee-da Loca");
@@ -160,12 +171,5 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.the_bumblezone.music.knowing_renren_stereo", "RenRen - Knowing");
 		add("sounds.musicmanager.the_bumblezone.music.radiance_renren_stereo", "RenRen - Radiance");
 		add("sounds.musicmanager.the_bumblezone.music.life_renren_stereo", "RenRen - Life");
-
-		add("sounds.musicmanager.aether.music.aether1", "Emile Van Krieken - Welcome to Paradise");
-		add("sounds.musicmanager.aether.music.aether2", "Emile Van Krieken - Wings");
-		add("sounds.musicmanager.aether.music.aether3", "Emile Van Krieken - Meadow");
-		add("sounds.musicmanager.aether.music.aether4", "Emile Van Krieken - Moa's Song");
-		add("sounds.musicmanager.aether.music.aether5", "Emile Van Krieken - Clouds");
-		add("sounds.musicmanager.aether.music.menu", "Emile Van Krieken - Float");
 	}
 }
