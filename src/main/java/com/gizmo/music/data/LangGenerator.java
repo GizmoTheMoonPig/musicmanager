@@ -51,23 +51,32 @@ public class LangGenerator extends LanguageProvider {
 		add("sounds.musicmanager.minecraft.music.game.comforting_memories", "Kumi Tanioka - Comforting Memories");
 		add("sounds.musicmanager.minecraft.music.game.crescent_dunes", "Aaron Cherof - Crescent Dunes");
 		add("sounds.musicmanager.minecraft.music.game.danny", "C418 - Danny");
+		add("sounds.musicmanager.minecraft.music.game.deeper", "Lena Raine - Deeper");
 		add("sounds.musicmanager.minecraft.music.game.dry_hands", "C418 - Dry Hands");
 		add("sounds.musicmanager.minecraft.music.game.echo_in_the_wind", "Aaron Cherof - Echo in the Wind");
+		add("sounds.musicmanager.minecraft.music.game.eld_unknown", "Lena Raine - Eld Unknown");
+		add("sounds.musicmanager.minecraft.music.game.endless", "Lena Raine - Endless");
+		add("sounds.musicmanager.minecraft.music.game.featherfall", "Aaron Cherof - Featherfall");
 		add("sounds.musicmanager.minecraft.music.game.floating_dream", "Kumi Tanioka - Floating Dream");
 		add("sounds.musicmanager.minecraft.music.game.haggstrom", "C418 - Haggstrom");
 		add("sounds.musicmanager.minecraft.music.game.infinite_amethyst", "Lena Raine - Infinite Amethyst");
 		add("sounds.musicmanager.minecraft.music.game.key", "C418 - Key");
+		add("sounds.musicmanager.minecraft.music.game.komorebi", "Kumi Tanioka - Komorebi");
 		add("sounds.musicmanager.minecraft.music.game.left_to_bloom", "Lena Raine - Left to Bloom");
 		add("sounds.musicmanager.minecraft.music.game.living_mice", "C418 - Living Mice");
 		add("sounds.musicmanager.minecraft.music.game.mice_on_venus", "C418 - Mice on Venus");
 		add("sounds.musicmanager.minecraft.music.game.minecraft", "C418 - Minecraft");
 		add("sounds.musicmanager.minecraft.music.game.one_more_day", "Lena Raine - One More Day");
 		add("sounds.musicmanager.minecraft.music.game.oxygene", "C418 - Oxygène");
+		add("sounds.musicmanager.minecraft.music.game.pokopoko", "Kumi Tanioka - Pokopoko");
+		add("sounds.musicmanager.minecraft.music.game.puzzlebox", "Aaron Cherof - Puzzlebox");
 		add("sounds.musicmanager.minecraft.music.game.stand_tall", "Lena Raine - Stand Tall");
 		add("sounds.musicmanager.minecraft.music.game.subwoofer_lullaby", "C418 - Subwoofer Lullaby");
 		add("sounds.musicmanager.minecraft.music.game.sweden", "C418 - Sweden");
 		add("sounds.musicmanager.minecraft.music.game.wending", "Lena Raine - Wending");
+		add("sounds.musicmanager.minecraft.music.game.watcher", "Aaron Cherof - Watcher");
 		add("sounds.musicmanager.minecraft.music.game.wet_hands", "C418 - Wet Hands");
+		add("sounds.musicmanager.minecraft.music.game.yakusoku", "Kumi Tanioka - Yakusoku");
 
 		// Swamp
 		add("sounds.musicmanager.minecraft.music.game.swamp.aerie", "Lena Raine - Aerie");

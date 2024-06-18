@@ -18,7 +18,7 @@ import java.util.Objects;
 //Heavily modified SystemToast
 public final class MusicToast implements Toast {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation("toast/advancement");
+	private static final ResourceLocation TEXTURE = ResourceLocation.withDefaultNamespace("toast/advancement");
 	public static final int TEXT_LEFT_MARGIN = 30;
 	public static final int TEXT_RIGHT_MARGIN = 7;
 	private Component rawDesc;

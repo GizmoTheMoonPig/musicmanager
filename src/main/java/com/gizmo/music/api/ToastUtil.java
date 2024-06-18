@@ -7,6 +7,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +15,9 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.JukeboxSong;
+import net.neoforged.neoforge.common.Tags;
+import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -23,7 +26,7 @@ import java.util.TreeMap;
 
 public class ToastUtil {
 
-	private static final Map<ResourceLocation, RecordItem> CACHED_RECORDS = new TreeMap<>();
+	private static final Map<ResourceLocation, Pair<Item, JukeboxSong>> CACHED_RECORDS = new TreeMap<>();
 
 	/**
 	 * Formats a SoundInstance's name to an easy-to-read format. Entries are formatted as such: <br>
@@ -46,16 +49,17 @@ public class ToastUtil {
 	}
 
 	/**
-	 * Fetches a {@link RecordItem} associated to a specific sound, if any. <br>
-	 * Use this instead of RecordItem#BY_NAME as that map only contains vanilla music discs. Forge's constructor doesn't add to the map.
+	 * Fetches a {@link Item} associated to a specific sound, if any. <br>
+	 * This checks for items that have a JukeboxPlayable component attached by default.
 	 * @param instance the sound to check if any records contain
 	 * @return The RecordItem tied to the SoundInstance provided, if any
 	 */
 	@Nullable
-	public static RecordItem getDiscFromSound(SoundInstance instance) {
+	public static Pair<Item, JukeboxSong> getDiscFromSound(SoundInstance instance) {
 		if (CACHED_RECORDS.isEmpty()) {
-			for (RecordItem item : BuiltInRegistries.ITEM.stream().filter(item -> item instanceof RecordItem).map(RecordItem.class::cast).toList()) {
-				CACHED_RECORDS.put(item.getSound().getLocation(), item);
+			for (Item item : BuiltInRegistries.ITEM.stream().filter(item -> item.components().has(DataComponents.JUKEBOX_PLAYABLE)).toList()) {
+				JukeboxSong song = item.components().get(DataComponents.JUKEBOX_PLAYABLE).song().unwrap(Minecraft.getInstance().level.registryAccess()).get().value();
+				CACHED_RECORDS.put(song.soundEvent().value().getLocation(), Pair.of(item, song));
 			}
 		}
 
@@ -65,6 +69,17 @@ public class ToastUtil {
 		return null;
 	}
 
+	public static void clearCachedRecords() {
+		CACHED_RECORDS.clear();
+	}
+
+	public static Component tryGetDiscTranslation(ResourceLocation location) {
+		String unlocalizedSound = "jukebox_song." + location.getNamespace() + "." + location.getPath();
+		if (I18n.exists(unlocalizedSound)) {
+			return Component.translatable(unlocalizedSound);
+		}
+		return Component.literal("Unknown Song");
+	}
 	/**
 	 * Attempts to grab Biome and Dimension icon overrides first, then grabs a random music disc if neither exists
 	 * @see MusicResources Icon override registration
@@ -79,13 +94,13 @@ public class ToastUtil {
 	}
 
 	/**
-	 * Grabs a random music disc from the {@link ItemTags#MUSIC_DISCS Music Discs} tag, returns {@link Items#MUSIC_DISC_CAT C418 - Cat} by default
+	 * Grabs a random music disc from the {@link Tags.Items#MUSIC_DISCS Music Discs} tag, returns {@link Items#MUSIC_DISC_CAT C418 - Cat} by default
 	 */
 	public static ItemStack fetchRandomDisc(ClientLevel level) {
 		ItemStack defaultItem = new ItemStack(Items.MUSIC_DISC_CAT);
 		//if tags are populated, grab a random music disc to spice things up!
-		if (BuiltInRegistries.ITEM.getTag(ItemTags.MUSIC_DISCS).isPresent()) {
-			Optional<Holder<Item>> disc = BuiltInRegistries.ITEM.getTag(ItemTags.MUSIC_DISCS).get().getRandomElement(level.getRandom());
+		if (BuiltInRegistries.ITEM.getTag(Tags.Items.MUSIC_DISCS).isPresent()) {
+			Optional<Holder<Item>> disc = BuiltInRegistries.ITEM.getTag(Tags.Items.MUSIC_DISCS).get().getRandomElement(level.getRandom());
 			if (disc.isPresent()) {
 				defaultItem = new ItemStack(disc.get());
 			}

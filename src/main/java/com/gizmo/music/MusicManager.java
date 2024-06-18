@@ -17,9 +17,10 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.InclusiveRange;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.JukeboxSong;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
@@ -32,7 +33,6 @@ import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.NeoForgeConfig;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.Nullable;
@@ -79,7 +79,7 @@ public class MusicManager {
 			CLIENT = specPair.getLeft();
 			CLIENT_SPEC = specPair.getRight();
 		}
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CLIENT_SPEC);
+		ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.CLIENT, CLIENT_SPEC);
 
 		bus.addListener(this::gatherData);
 		bus.addListener(this::reloadConfig);
@@ -147,10 +147,15 @@ public class MusicManager {
 				this.lastPlayedSound = sound;
 			}
 		} else if (sound.getSource() == SoundSource.RECORDS && MusicManager.displayRecordToast) {
-			RecordItem disc = ToastUtil.getDiscFromSound(sound);
-			if (disc == null) return;
-			if (this.addMusicToast(disc.getDisplayName(), new ItemStack(disc))) {
-				this.lastPlayedSound = sound;
+			Pair<Item, JukeboxSong> song = ToastUtil.getDiscFromSound(sound);
+			if (song == null) {
+				if (this.addMusicToast(ToastUtil.tryGetDiscTranslation(sound.getLocation()), ToastUtil.fetchRandomDisc(mc.level))) {
+					this.lastPlayedSound = sound;
+				}
+			} else {
+				if (this.addMusicToast(song.getRight().description(), new ItemStack(song.getLeft()))) {
+					this.lastPlayedSound = sound;
+				}
 			}
 		}
 	}

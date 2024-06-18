@@ -73,7 +73,7 @@ public abstract class IconOverrideProvider implements DataProvider {
 				this.iconOverrides.entrySet().stream().map(entry ->
 						DataProvider.saveStable(output,
 								Util.make(new JsonObject(), obj -> obj.addProperty("icon", entry.getValue().toString())),
-								this.particlesPath.json(new ResourceLocation(MusicManager.MODID, entry.getKey())))
+								this.particlesPath.json(ResourceLocation.fromNamespaceAndPath(MusicManager.MODID, entry.getKey())))
 				).toArray(CompletableFuture[]::new)
 		);
 	}

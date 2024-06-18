@@ -19,7 +19,7 @@ import org.lwjgl.glfw.GLFW;
 
 public class MusicManagerScreen extends Screen {
 
-	static final ResourceLocation TEXTURE = new ResourceLocation(MusicManager.MODID, "textures/gui/manager_screen.png");
+	static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MusicManager.MODID, "textures/gui/manager_screen.png");
 	protected int leftPos;
 	protected int topPos;
 
@@ -128,10 +128,10 @@ public class MusicManagerScreen extends Screen {
 	}
 
 	public static class CheckBox extends AbstractButton {
-		private static final ResourceLocation CHECKBOX_SELECTED_HOVERED_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box_selected_hovered");
-		private static final ResourceLocation CHECKBOX_SELECTED_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box_selected");
-		private static final ResourceLocation CHECKBOX_HOVERED_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box_hovered");
-		private static final ResourceLocation CHECKBOX_SPRITE = new ResourceLocation(MusicManager.MODID, "check_box");
+		private static final ResourceLocation CHECKBOX_SELECTED_HOVERED_SPRITE = ResourceLocation.fromNamespaceAndPath(MusicManager.MODID, "check_box_selected_hovered");
+		private static final ResourceLocation CHECKBOX_SELECTED_SPRITE = ResourceLocation.fromNamespaceAndPath(MusicManager.MODID, "check_box_selected");
+		private static final ResourceLocation CHECKBOX_HOVERED_SPRITE = ResourceLocation.fromNamespaceAndPath(MusicManager.MODID, "check_box_hovered");
+		private static final ResourceLocation CHECKBOX_SPRITE = ResourceLocation.fromNamespaceAndPath(MusicManager.MODID, "check_box");
 
 		private boolean selected;
 

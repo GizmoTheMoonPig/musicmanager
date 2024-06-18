@@ -18,14 +18,14 @@ public class IconOverrideGenerator extends IconOverrideProvider {
 		this.createDimensionIcon(Level.OVERWORLD.location(), Blocks.GRASS_BLOCK);
 		this.createDimensionIcon(Level.NETHER.location(), Blocks.NETHERRACK);
 		this.createDimensionIcon(Level.END.location(), Blocks.END_STONE);
-		this.createDimensionIcon(new ResourceLocation("aether", "the_aether"), new ResourceLocation("aether", "aether_portal_frame"));
-		this.createDimensionIcon(new ResourceLocation("blue_skies", "everbright"), new ResourceLocation("blue_skies", "everbright_portal"));
-		this.createDimensionIcon(new ResourceLocation("blue_skies", "everdawn"), new ResourceLocation("blue_skies", "everdawn_portal"));
-		this.createDimensionIcon(new ResourceLocation("rats", "ratlantis"), new ResourceLocation("rats", "chunky_cheese_token"));
-		this.createDimensionIcon(new ResourceLocation("the_bumblezone", "the_bumblezone"), new ResourceLocation("the_bumblezone", "essence_of_the_bees"));
-		this.createDimensionIcon(new ResourceLocation("twilightforest", "twilight_forest"), new ResourceLocation("twilightforest", "twilight_portal_miniature_structure"));
-		this.createDimensionIcon(new ResourceLocation("undergarden", "undergarden"), new ResourceLocation("undergarden", "deepturf_block"));
-		this.createDimensionIcon(new ResourceLocation("witherstormmod", "bowels"), new ResourceLocation("witherstormmod", "command_block_book"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("aether", "the_aether"), ResourceLocation.fromNamespaceAndPath("aether", "aether_portal_frame"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("blue_skies", "everbright"), ResourceLocation.fromNamespaceAndPath("blue_skies", "everbright_portal"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("blue_skies", "everdawn"), ResourceLocation.fromNamespaceAndPath("blue_skies", "everdawn_portal"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("rats", "ratlantis"), ResourceLocation.fromNamespaceAndPath("rats", "chunky_cheese_token"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("the_bumblezone", "the_bumblezone"), ResourceLocation.fromNamespaceAndPath("the_bumblezone", "essence_of_the_bees"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("twilightforest", "twilight_forest"), ResourceLocation.fromNamespaceAndPath("twilightforest", "twilight_portal_miniature_structure"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("undergarden", "undergarden"), ResourceLocation.fromNamespaceAndPath("undergarden", "deepturf_block"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("witherstormmod", "bowels"), ResourceLocation.fromNamespaceAndPath("witherstormmod", "command_block_book"));
 
 		this.createBiomeIcon(Biomes.DEEP_DARK.location(), Blocks.SCULK);
 		this.createBiomeIcon(Biomes.CRIMSON_FOREST.location(), Blocks.CRIMSON_NYLIUM);
@@ -33,18 +33,18 @@ public class IconOverrideGenerator extends IconOverrideProvider {
 		this.createBiomeIcon(Biomes.SOUL_SAND_VALLEY.location(), Blocks.SOUL_SOIL);
 		this.createBiomeIcon(Biomes.BASALT_DELTAS.location(), Blocks.BASALT);
 
-		this.createBiomeIcon(new ResourceLocation("alexscaves", "forlorn_hollows"), new ResourceLocation("alexscaves", "peering_coprolith"));
-		this.createBiomeIcon(new ResourceLocation("alexscaves", "abyssal_chasm"), new ResourceLocation("alexscaves", "muck"));
-		this.createBiomeIcon(new ResourceLocation("alexscaves", "toxic_caves"), new ResourceLocation("alexscaves", "radrock"));
-		this.createBiomeIcon(new ResourceLocation("alexscaves", "magnetic_caves"), new ResourceLocation("alexscaves", "galena"));
-		this.createBiomeIcon(new ResourceLocation("alexscaves", "primordial_caves"), new ResourceLocation("alexscaves", "limestone"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("alexscaves", "forlorn_hollows"), ResourceLocation.fromNamespaceAndPath("alexscaves", "peering_coprolith"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("alexscaves", "abyssal_chasm"), ResourceLocation.fromNamespaceAndPath("alexscaves", "muck"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("alexscaves", "toxic_caves"), ResourceLocation.fromNamespaceAndPath("alexscaves", "radrock"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("alexscaves", "magnetic_caves"), ResourceLocation.fromNamespaceAndPath("alexscaves", "galena"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("alexscaves", "primordial_caves"), ResourceLocation.fromNamespaceAndPath("alexscaves", "limestone"));
 
-		this.createBiomeIcon(new ResourceLocation("biomesoplenty", "erupting_inferno"), new ResourceLocation("biomesoplenty", "brimstone"));
-		this.createBiomeIcon(new ResourceLocation("biomesoplenty", "visceral_heap"), new ResourceLocation("biomesoplenty", "flesh"));
-		this.createBiomeIcon(new ResourceLocation("biomesoplenty", "withered_abyss"), Blocks.BLACKSTONE);
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("biomesoplenty", "erupting_inferno"), ResourceLocation.fromNamespaceAndPath("biomesoplenty", "brimstone"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("biomesoplenty", "visceral_heap"), ResourceLocation.fromNamespaceAndPath("biomesoplenty", "flesh"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("biomesoplenty", "withered_abyss"), Blocks.BLACKSTONE);
 
-		this.createBiomeIcon(new ResourceLocation("undergarden", "frostfields"), new ResourceLocation("undergarden", "frozen_deepturf_block"));
-		this.createBiomeIcon(new ResourceLocation("undergarden", "smog_spires"), new ResourceLocation("undergarden", "ashen_deepturf_block"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("undergarden", "frostfields"), ResourceLocation.fromNamespaceAndPath("undergarden", "frozen_deepturf_block"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("undergarden", "smog_spires"), ResourceLocation.fromNamespaceAndPath("undergarden", "ashen_deepturf_block"));
 
 	}
 }

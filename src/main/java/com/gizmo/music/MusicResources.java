@@ -50,15 +50,15 @@ public class MusicResources {
             }
 
             // extract the expected dimension from the path we split earlier. remove the file extension.
-            ResourceLocation dimension = new ResourceLocation(splitPath[2], splitPath[3].replace(".json", ""));
+            ResourceLocation dimension = ResourceLocation.fromNamespaceAndPath(splitPath[2], splitPath[3].replace(".json", ""));
 
             try (BufferedReader reader = v.openAsReader()) {
                 JsonObject json = GsonHelper.parse(reader);
                 String item = json.get("icon").getAsString();
                 //add to appropriate list based on folder
                 switch (splitPath[1]) {
-                    case "dimensions" -> DIMENSION_ICONS.put(dimension, new ResourceLocation(item));
-                    case "biomes" -> BIOME_ICONS.put(dimension, new ResourceLocation(item));
+                    case "dimensions" -> DIMENSION_ICONS.put(dimension, ResourceLocation.parse(item));
+                    case "biomes" -> BIOME_ICONS.put(dimension, ResourceLocation.parse(item));
                     default -> MusicManager.LOGGER.error("Unknown icon path {}!", splitPath[1]);
                 }
 
