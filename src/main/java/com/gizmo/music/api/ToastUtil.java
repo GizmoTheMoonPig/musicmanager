@@ -69,10 +69,6 @@ public class ToastUtil {
 		return null;
 	}
 
-	public static void clearCachedRecords() {
-		CACHED_RECORDS.clear();
-	}
-
 	public static Component tryGetDiscTranslation(ResourceLocation location) {
 		String unlocalizedSound = "jukebox_song." + location.getNamespace() + "." + location.getPath();
 		if (I18n.exists(unlocalizedSound)) {
