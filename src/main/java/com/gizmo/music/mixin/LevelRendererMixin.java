@@ -1,6 +1,8 @@
 package com.gizmo.music.mixin;
 
 import com.gizmo.music.MusicManager;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.network.chat.Component;
@@ -11,10 +13,10 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
 
-	@Redirect(method = "playJukeboxSong", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;setNowPlaying(Lnet/minecraft/network/chat/Component;)V", remap = false), remap = false)
-	private void modifyRecordPlayingOverlay(Gui gui, Component component) {
+	@WrapOperation(method = "playJukeboxSong", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;setNowPlaying(Lnet/minecraft/network/chat/Component;)V"))
+	private void musicManager$modifyRecordPlayingOverlay(Gui instance, Component displayName, Operation<Void> original) {
 		if (!MusicManager.displayRecordToast) {
-			gui.setNowPlaying(component);
+			original.call(instance, displayName);
 		}
 	}
 }
