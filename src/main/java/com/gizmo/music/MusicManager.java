@@ -21,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.JukeboxSong;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
@@ -30,6 +31,8 @@ import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.NeoForge;
@@ -42,7 +45,7 @@ import org.slf4j.Logger;
 import java.util.Optional;
 import java.util.UUID;
 
-@Mod(MusicManager.MODID)
+@Mod(value = MusicManager.MODID, dist = Dist.CLIENT)
 public class MusicManager {
 	public static final String MODID = "musicmanager";
 	public static final Logger LOGGER = LogUtils.getLogger();
@@ -80,6 +83,7 @@ public class MusicManager {
 			CLIENT_SPEC = specPair.getRight();
 		}
 		ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.CLIENT, CLIENT_SPEC);
+		ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () -> ConfigurationScreen::new);
 
 		bus.addListener(this::gatherData);
 		bus.addListener(this::reloadConfig);

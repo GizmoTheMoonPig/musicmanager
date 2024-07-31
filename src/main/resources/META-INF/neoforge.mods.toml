@@ -14,12 +14,11 @@ A small clientside mod that displays a toast when a music track starts playing.
 You can set how often songs play, set whether toasts play sounds when appearing, as well as display the message that shows up when a music disc starts playing as a toast instead.
 Press M to open the music manager screen.
 '''
-displayTest="IGNORE_ALL_VERSION"
 
 [[dependencies.musicmanager]]
     modId="neoforge"
     type="required"
-    versionRange="[21.0.11-beta,)"
+    versionRange="[21.0.143,)"
     ordering="NONE"
     side="BOTH"
 

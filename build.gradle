@@ -3,8 +3,7 @@ plugins {
 	id 'eclipse'
 	id 'idea'
 	id 'maven-publish'
-	id 'net.neoforged.gradle.userdev' version '7.0.+'
-	id 'net.neoforged.gradle.mixin' version '7.0.+'
+	id 'net.neoforged.moddev' version '1.0.1'
 }
 
 def secrets = new Properties()
@@ -24,6 +23,13 @@ if (secretsFile.exists()) {
 	}
 }
 
+idea {
+	module {
+		downloadJavadoc = true
+		downloadSources = true
+	}
+}
+
 version = "${project.minecraft_version}-${project.mod_version}." + (hasProperty("CIVersion") ? CIVersion : '0')
 group = 'com.gizmo.music'
 base {
@@ -31,57 +37,50 @@ base {
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
 compileJava.options.compilerArgs << "-Xlint:all,-classfile,-processing,-deprecation,-this-escape" << "-Werror"
 
-runs {
-	configureEach {
-		workingDirectory project.file("run")
-		systemProperty 'forge.logging.console.level', 'debug'
-		systemProperty 'mixin.env.disableRefMap', 'true'
+neoForge {
+	version = project.neo_version
+	validateAccessTransformers = true
 
-		modSource project.sourceSets.main
+	runs {
+		configureEach {
+			gameDirectory = project.file('run')
+			systemProperty 'forge.logging.console.level', 'debug'
+			logLevel = org.slf4j.event.Level.DEBUG
+		}
+
+		client {
+			client()
+			systemProperty 'forge.enabledGameTestNamespaces', modid
+			programArguments.addAll '--username', secrets.getProperty("username") ?: 'Dev', secrets.getProperty("uuid") ? '--uuid' : '', secrets.getProperty("uuid") ?: ''
+		}
+
+		server {
+			server()
+			systemProperty 'forge.enabledGameTestNamespaces', modid
+			programArgument '--nogui'
+		}
+
+		data {
+			data()
+			programArguments.addAll '--mod', modid, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+		}
 	}
 
-	client {
-		systemProperty 'forge.enabledGameTestNamespaces', modid
-		programArgument "-mixin.config=${project.modid}.mixins.json"
-		programArguments.addAll '--username', secrets.getProperty("username") ?: 'Dev', secrets.getProperty("uuid") ? '--uuid' : '', secrets.getProperty("uuid") ?: ''
-	}
-
-	server {
-		systemProperty 'forge.enabledGameTestNamespaces', modid
-		programArgument '--nogui'
-	}
-
-	gameTestServer {
-		systemProperty 'forge.enabledGameTestNamespaces', modid
-	}
-
-	data {
-		programArguments.addAll '--mod', modid, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+	mods {
+		musicmanager {
+			sourceSet this.sourceSets.main
+		}
 	}
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-	maven {
-		url = "https://modmaven.dev/"
-	}
-
-	maven {
-		name 'Curseforge Maven'
-		url "https://www.cursemaven.com"
-		content {
-			includeGroup "curse.maven"
-		}
-	}
 }
 
 dependencies {
-	implementation "net.neoforged:neoforge:${project.neo_version}"
-	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.named('jar', Jar).configure {
@@ -103,13 +102,13 @@ def mavenToken = hasProperty("CIMToken") ? CIMToken : secrets.getProperty("maven
 
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
+		create('mavenJava', MavenPublication) {
 			afterEvaluate {
-				artifact project.jar
-				artifact project.sourceJar
+				artifact this.project.jar
+				artifact this.project.sourceJar
 			}
-			setGroupId 'gizmo'
-			setArtifactId 'musicmanager'
+			groupId 'gizmo'
+			artifactId this.project.modid
 		}
 	}
 	repositories {

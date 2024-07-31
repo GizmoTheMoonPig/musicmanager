@@ -80,13 +80,13 @@ public class MusicManagerScreen extends Screen {
 
 	private void renderHoverTooltips(GuiGraphics graphics, int x, int y) {
 		if (this.isHovering(44, 24, 12, 12, x, y)) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.display_record_toast.desc"), 200), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.display_record_toast.tooltip"), 200), x, y);
 		} else if (this.isHovering(101, 24, 12, 12, x, y)) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.play_toast_sound.desc"), 175), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.play_toast_sound.tooltip"), 175), x, y);
 		} else if (this.isHovering(25, 51, 32, 12, x, y) && !this.minDelay.isFocused()) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.min_song_delay.desc"), 200), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.min_song_delay.tooltip"), 200), x, y);
 		} else if (this.isHovering(85, 51, 32, 12, x, y) && !this.maxDelay.isFocused()) {
-			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.max_song_delay.desc"), 175), x, y);
+			graphics.renderTooltip(this.font, this.font.split(Component.translatable("gui.musicmanager.max_song_delay.tooltip"), 175), x, y);
 		}
 	}
 
