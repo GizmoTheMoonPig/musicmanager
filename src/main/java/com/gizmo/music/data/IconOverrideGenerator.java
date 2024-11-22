@@ -22,6 +22,7 @@ public class IconOverrideGenerator extends IconOverrideProvider {
 		this.createDimensionIcon(new ResourceLocation("blue_skies", "everbright"), new ResourceLocation("blue_skies", "everbright_portal"));
 		this.createDimensionIcon(new ResourceLocation("blue_skies", "everdawn"), new ResourceLocation("blue_skies", "everdawn_portal"));
 		this.createDimensionIcon(new ResourceLocation("rats", "ratlantis"), new ResourceLocation("rats", "chunky_cheese_token"));
+		this.createDimensionIcon(new ResourceLocation("thebetweenlands", "the_betweenlands"), new ResourceLocation("thebetweenlands", "swamp_grass"));
 		this.createDimensionIcon(new ResourceLocation("the_bumblezone", "the_bumblezone"), new ResourceLocation("the_bumblezone", "essence_of_the_bees"));
 		this.createDimensionIcon(new ResourceLocation("twilightforest", "twilight_forest"), new ResourceLocation("twilightforest", "twilight_portal_miniature_structure"));
 		this.createDimensionIcon(new ResourceLocation("undergarden", "undergarden"), new ResourceLocation("undergarden", "deepturf_block"));
@@ -43,8 +44,11 @@ public class IconOverrideGenerator extends IconOverrideProvider {
 		this.createBiomeIcon(new ResourceLocation("biomesoplenty", "visceral_heap"), new ResourceLocation("biomesoplenty", "flesh"));
 		this.createBiomeIcon(new ResourceLocation("biomesoplenty", "withered_abyss"), Blocks.BLACKSTONE);
 
+		this.createBiomeIcon(new ResourceLocation("thebetweenlands", "sludge_plains"), new ResourceLocation("thebetweenlands", "sludgy_dirt"));
+		this.createBiomeIcon(new ResourceLocation("thebetweenlands", "sludge_clearing"), new ResourceLocation("thebetweenlands", "compacted_mud"));
+		this.createBiomeIcon(new ResourceLocation("thebetweenlands", "deep_waters"), new ResourceLocation("thebetweenlands", "mossy_cragrock_top"));
+
 		this.createBiomeIcon(new ResourceLocation("undergarden", "frostfields"), new ResourceLocation("undergarden", "frozen_deepturf_block"));
 		this.createBiomeIcon(new ResourceLocation("undergarden", "smog_spires"), new ResourceLocation("undergarden", "ashen_deepturf_block"));
-
 	}
 }
