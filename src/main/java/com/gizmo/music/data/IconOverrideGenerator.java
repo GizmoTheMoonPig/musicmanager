@@ -22,6 +22,7 @@ public class IconOverrideGenerator extends IconOverrideProvider {
 		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("blue_skies", "everbright"), ResourceLocation.fromNamespaceAndPath("blue_skies", "everbright_portal"));
 		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("blue_skies", "everdawn"), ResourceLocation.fromNamespaceAndPath("blue_skies", "everdawn_portal"));
 		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("rats", "ratlantis"), ResourceLocation.fromNamespaceAndPath("rats", "chunky_cheese_token"));
+		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("thebetweenlands", "the_betweenlands"), ResourceLocation.fromNamespaceAndPath("thebetweenlands", "swamp_grass"));
 		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("the_bumblezone", "the_bumblezone"), ResourceLocation.fromNamespaceAndPath("the_bumblezone", "essence_of_the_bees"));
 		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("twilightforest", "twilight_forest"), ResourceLocation.fromNamespaceAndPath("twilightforest", "twilight_portal_miniature_structure"));
 		this.createDimensionIcon(ResourceLocation.fromNamespaceAndPath("undergarden", "undergarden"), ResourceLocation.fromNamespaceAndPath("undergarden", "deepturf_block"));
@@ -43,8 +44,11 @@ public class IconOverrideGenerator extends IconOverrideProvider {
 		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("biomesoplenty", "visceral_heap"), ResourceLocation.fromNamespaceAndPath("biomesoplenty", "flesh"));
 		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("biomesoplenty", "withered_abyss"), Blocks.BLACKSTONE);
 
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("thebetweenlands", "sludge_plains"), ResourceLocation.fromNamespaceAndPath("thebetweenlands", "sludgy_dirt"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("thebetweenlands", "sludge_clearing"), ResourceLocation.fromNamespaceAndPath("thebetweenlands", "compacted_mud"));
+		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("thebetweenlands", "deep_waters"), ResourceLocation.fromNamespaceAndPath("thebetweenlands", "mossy_cragrock_top"));
+
 		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("undergarden", "frostfields"), ResourceLocation.fromNamespaceAndPath("undergarden", "frozen_deepturf_block"));
 		this.createBiomeIcon(ResourceLocation.fromNamespaceAndPath("undergarden", "smog_spires"), ResourceLocation.fromNamespaceAndPath("undergarden", "ashen_deepturf_block"));
-
 	}
 }

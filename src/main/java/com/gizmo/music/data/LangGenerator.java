@@ -132,8 +132,11 @@ public class LangGenerator extends LanguageProvider {
 		// Alex's Caves
 		this.add("sounds.musicmanager.alexscaves.music.alloy_allure", "LudoCrypt - Alloy Allure");
 		this.add("sounds.musicmanager.alexscaves.music.arid_reverie", "Gatetoh - Arid Reverie");
+		this.add("sounds.musicmanager.alexscaves.music.dulcet", "Gatetoh - Dulcet");
 		this.add("sounds.musicmanager.alexscaves.music.forgotten_tides", "Gatetoh - Forgotten Tides");
+		this.add("sounds.musicmanager.alexscaves.music.lux", "Gatetoh - Lux");
 		this.add("sounds.musicmanager.alexscaves.music.paleoverdant", "Gatetoh - Paleoverdant");
+		this.add("sounds.musicmanager.alexscaves.music.pristine_dawnrise", "Gatetoh - Pristine Dawnrise");
 		this.add("sounds.musicmanager.alexscaves.music.ray", "RenRen - Ray");
 
 		// Biomes O' Plenty
@@ -174,6 +177,9 @@ public class LangGenerator extends LanguageProvider {
 		this.add("sounds.musicmanager.aether.music.aether4", "Emile Van Krieken - Moa's Song");
 		this.add("sounds.musicmanager.aether.music.aether5", "Emile Van Krieken - Clouds");
 		this.add("sounds.musicmanager.aether.music.menu", "Emile Van Krieken - Float");
+		this.add("sounds.musicmanager.aether.music.boss.slider_fight", "Emile Van Krieken - Labyrinth's Vengeance");
+		this.add("sounds.musicmanager.aether.music.boss.sun_spirit_fight", "RenRen - Ardor");
+		this.add("sounds.musicmanager.aether.music.boss.valkyrie_queen_fight", "Sunsette - Trial by Combat");
 
 		// The Bumblezone
 		this.add("sounds.musicmanager.the_bumblezone.music.flight_of_the_bumblebee_rimsky_korsakov", "Rimsky Korsakov - Flight of the Bumblebee");
@@ -184,5 +190,47 @@ public class LangGenerator extends LanguageProvider {
 		this.add("sounds.musicmanager.the_bumblezone.music.knowing_renren_stereo", "RenRen - Knowing");
 		this.add("sounds.musicmanager.the_bumblezone.music.radiance_renren_stereo", "RenRen - Radiance");
 		this.add("sounds.musicmanager.the_bumblezone.music.life_renren_stereo", "RenRen - Life");
+		this.add("sounds.musicmanager.the_bumblezone.music.beenna_box_stereo", "Punpudle - Beenna Box");
+		this.add("sounds.musicmanager.the_bumblezone.music.drowning_in_despair_stereo", "Punpudle - Drowning in Despair");
+		this.add("sounds.musicmanager.the_bumblezone.music.a_last_first_last_stereo", "Punpudle - A Last First Last");
+
+		// The Betweenlands
+		this.add("sounds.musicmanager.thebetweenlands.boss.barrishee_theme", "Rotch Gwylt - Barrishee");
+		this.add("sounds.musicmanager.thebetweenlands.boss.dreadful_peat_mummy_loop", "Rotch Gwylt - Dreadful Peat Mummy");
+		this.add("sounds.musicmanager.thebetweenlands.boss.fortress_boss_loop", "Rotch Gwylt - Primordial Malevolence");
+		this.add("sounds.musicmanager.thebetweenlands.boss.pit_of_decay_loop", "Rotch Gwylt - Pit of Decay");
+		this.add("sounds.musicmanager.thebetweenlands.music.barrow_mounds", "Scarecrowman - Barrow Mounds");
+		this.add("sounds.musicmanager.thebetweenlands.music.crocodile_tears", "Voog2 - Crocodile Tears");
+		this.add("sounds.musicmanager.thebetweenlands.music.dont_follow_the_whisps", "Voog2 - Don't Follow the Whisps");
+		this.add("sounds.musicmanager.thebetweenlands.music.emerald_embers", "Scarecrowman - Emerald Embers");
+		this.add("sounds.musicmanager.thebetweenlands.music.enter_the_mire", "Scarecrowman - Enter the Mire");
+		this.add("sounds.musicmanager.thebetweenlands.music.ghostfaces", "Scarecrowman - Ghostfaces");
+		this.add("sounds.musicmanager.thebetweenlands.music.in_between", "Voog2 - In Between");
+		this.add("sounds.musicmanager.thebetweenlands.music.incantation", "Scarecrowman - Incantation");
+		this.add("sounds.musicmanager.thebetweenlands.music.leech_love_part_1", "Voog2 - Leech Love - Part 1");
+		this.add("sounds.musicmanager.thebetweenlands.music.leech_love_part_2", "Voog2 - Leech Love - Part 2");
+		this.add("sounds.musicmanager.thebetweenlands.music.murk_beneath_a_twinkling_void", "Scarecrowman - Murk Beneath a Twinkling Void");
+		this.add("sounds.musicmanager.thebetweenlands.music.numbskull", "Scarecrowman - Numbskull");
+		this.add("sounds.musicmanager.thebetweenlands.music.rip_in_the_fold", "Voog2 - Rip in the Fold");
+		this.add("sounds.musicmanager.thebetweenlands.music.spore_ballad", "Voog2 - Spore Ballad");
+		this.add("sounds.musicmanager.thebetweenlands.music.the_other_world", "Voog2 - The Other World");
+		this.add("sounds.musicmanager.thebetweenlands.music.the_quietus", "Scarecrowman - The Quietus");
+		this.add("sounds.musicmanager.thebetweenlands.menu.a_foreboding_welcome", "Rotch Gwylt - A Foreboding Welcome");
+		this.add("sounds.musicmanager.thebetweenlands.menu.the_adventure_begins", "Rotch Gwylt - The Adventure Begins");
+		this.add("sounds.musicmanager.thebetweenlands.menu.this_is_where_it_starts", "Rotch Gwylt - This Is Where It Starts");
+
+		// The Betweenlands - Eternal Melodies
+		this.add("sounds.musicmanager.thebetweenlandsmusic.a_walk_through_the_marsh", "Rotch Gwylt - A Walk Through the Marsh");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.back_home", "Rotch Gwylt - Back Home");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.chiromaw_matriarch", "Rotch Gwylt - Chiromaw Matriarch");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.emberling_shamans", "Rotch Gwylt - Emberling Shamans");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.eternal", "Rotch Gwylt - Eternal");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.labyrinthine_vaults", "Rotch Gwylt - Labyrinthine Vaults");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.light_will_follow", "Rotch Gwylt - Light Will Follow");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.rowing_through_the_fog", "Rotch Gwylt - Rowing Through The Fog");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.spirit_tree", "Rotch Gwylt - Spirit Tree");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.strange_but_pleasant", "Rotch Gwylt - Strange but Pleasant");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.we_are_the_ones_who_crawl", "Rotch Gwylt - We Are the Ones Who Crawl");
+		this.add("sounds.musicmanager.thebetweenlandsmusic.wight_fortress", "Rotch Gwylt - Wight Fortress");
 	}
 }
