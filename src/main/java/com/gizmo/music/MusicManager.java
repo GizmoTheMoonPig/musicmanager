@@ -147,7 +147,7 @@ public class MusicManager {
 	public boolean addMusicToast(Component text, ItemStack icon) {
 		MusicToastEvent event = new MusicToastEvent(text, icon);
 		if (!MinecraftForge.EVENT_BUS.post(event)) {
-			MusicToast.addOrReplace(Minecraft.getInstance().getToasts(), text, icon);
+			MusicToast.addOrReplace(Minecraft.getInstance().getToasts(), event.getText(), event.getIcon());
 			return true;
 		}
 		return false;
