@@ -165,9 +165,9 @@ public class MusicManager {
 	}
 
 	public boolean addMusicToast(Component text, ItemStack icon) {
-		MusicToastEvent event = new MusicToastEvent(text, icon);
-		if (!NeoForge.EVENT_BUS.post(event).isCanceled()) {
-			MusicToast.addOrReplace(Minecraft.getInstance().getToasts(), text, icon);
+		MusicToastEvent event = NeoForge.EVENT_BUS.post(new MusicToastEvent(text, icon));
+		if (!event.isCanceled()) {
+			MusicToast.addOrReplace(Minecraft.getInstance().getToasts(), event.getText(), event.getIcon());
 			return true;
 		}
 		return false;
